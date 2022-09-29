@@ -106,6 +106,11 @@ function Navigation({ logout }) {
                           <NavLink to="/hotels" type="Hotels">  
                             <h3> <img src={hotl} alt="hotel" style={{ height:'30px', width:'30px'}} /> </h3>
                           </NavLink>
+                          <NavLink to="/weather" type="weather">  
+                                <h3> 
+                                <img src={findTrip} alt="car rent" style={{ height:'30px', width:'30px'}} />
+                                </h3>
+                            </NavLink>
                           <NavLink to="/login" type="login"> 
                             <h3> <img src={log}alt="login" style={{ height:'30px', width:'30px'}} />  {/* <FaSignInAlt /> */}
                             </h3>
@@ -128,9 +133,9 @@ function Navigation({ logout }) {
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink to="/weather" className="nav col-sm-3 col-sm-3 col-sm-6 col-sm-8 mx-auto my-2" type="RentCar">  
+                            <NavLink to="/weather" className="nav col-sm-3 col-sm-3 col-sm-6 col-sm-8 mx-auto my-2" type="weather">  
                                 <h3> 
-                                <img src={findTrip} alt="car rent" style={{ height:'30px', width:'30px'}} />
+                                <img src={findTrip} alt="weather" style={{ height:'30px', width:'30px'}} />
                                 </h3>
                             </NavLink>
                         </NavItem>
