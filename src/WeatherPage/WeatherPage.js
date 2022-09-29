@@ -3,7 +3,7 @@ import {  Row, Col } from 'reactstrap';
 import moment from 'moment';
 import WeatherSearch from './WeatherSearch';
 import WeatherCard from './WeatherCard';
-import APIw from '../APIw';
+import APIw from './APIw';
 import './WeatherPage.css';
 
 const WeatherPage = (props) => {

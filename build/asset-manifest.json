@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "https://www.weatherbit.io/static/img/static/css/main.c667a6ee.chunk.css",
+    "main.js": "https://www.weatherbit.io/static/img/static/js/main.8e0a4105.chunk.js",
+    "main.js.map": "https://www.weatherbit.io/static/img/static/js/main.8e0a4105.chunk.js.map",
+    "runtime-main.js": "https://www.weatherbit.io/static/img/static/js/runtime-main.35f75c2c.js",
+    "runtime-main.js.map": "https://www.weatherbit.io/static/img/static/js/runtime-main.35f75c2c.js.map",
+    "static/css/2.ed247d83.chunk.css": "https://www.weatherbit.io/static/img/static/css/2.ed247d83.chunk.css",
+    "static/js/2.b5d2a0c5.chunk.js": "https://www.weatherbit.io/static/img/static/js/2.b5d2a0c5.chunk.js",
+    "static/js/2.b5d2a0c5.chunk.js.map": "https://www.weatherbit.io/static/img/static/js/2.b5d2a0c5.chunk.js.map",
+    "index.html": "https://www.weatherbit.io/static/img/index.html",
+    "static/css/2.ed247d83.chunk.css.map": "https://www.weatherbit.io/static/img/static/css/2.ed247d83.chunk.css.map",
+    "static/css/main.c667a6ee.chunk.css.map": "https://www.weatherbit.io/static/img/static/css/main.c667a6ee.chunk.css.map",
+    "static/js/2.b5d2a0c5.chunk.js.LICENSE.txt": "https://www.weatherbit.io/static/img/static/js/2.b5d2a0c5.chunk.js.LICENSE.txt",
+    "static/media/findH.5e9a5ed2.png": "https://www.weatherbit.io/static/img/static/media/findH.5e9a5ed2.png",
+    "static/media/flight.c4c34491.png": "https://www.weatherbit.io/static/img/static/media/flight.c4c34491.png",
+    "static/media/font-awesome.min.css": "https://www.weatherbit.io/static/img/static/media/fontawesome-webfont.f691f37e.woff",
+    "static/media/hotel.1bda961e.png": "https://www.weatherbit.io/static/img/static/media/hotel.1bda961e.png",
+    "static/media/mount.8b368edd.png": "https://www.weatherbit.io/static/img/static/media/mount.8b368edd.png",
+    "static/media/mytrip.4f962b8c.png": "https://www.weatherbit.io/static/img/static/media/mytrip.4f962b8c.png",
+    "static/media/signup.9d382cee.png": "https://www.weatherbit.io/static/img/static/media/signup.9d382cee.png",
+    "static/media/travelBudget.6b1f97e3.png": "https://www.weatherbit.io/static/img/static/media/travelBudget.6b1f97e3.png",
+    "static/media/trip.982e5802.png": "https://www.weatherbit.io/static/img/static/media/trip.982e5802.png",
+    "static/media/user.81844985.png": "https://www.weatherbit.io/static/img/static/media/user.81844985.png",
+    "static/media/weathers.9fd27622.png": "https://www.weatherbit.io/static/img/static/media/weathers.9fd27622.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.35f75c2c.js",
+    "static/css/2.ed247d83.chunk.css",
+    "static/js/2.b5d2a0c5.chunk.js",
+    "static/css/main.c667a6ee.chunk.css",
+    "static/js/main.8e0a4105.chunk.js"
+  ]
+}
