@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import AddItemForm from "./AddItemForm";
 import Item from "./Item";
 import { Card, CardHeader, CardBody } from "reactstrap";
 import "./item.css";
-import Axios from "axios";
 
 const PackingList = props => {
   const [items, setItems] = useState([]);

@@ -1,9 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Card, CardBody, CardHeader, CardText, Button } from "reactstrap";
-import { useHistory } from "react-router-dom";
-import UserContext from "../auth/UserContext";
+import React from "react";
+import { Card, CardBody, CardHeader, CardText } from "reactstrap";
 import moment from 'moment';
-// import useLocalStorage from "./hooks/useLocalStorage";
 import './Hotel.css'
 
 //HotelDetail component is used on AddHotel Component.
@@ -12,12 +9,8 @@ import './Hotel.css'
 //IT will show the remove button, if the user has saved to the hotel previously.
 
 function HotelDetail(props) {
-  // console.debug("HotelDetail");
-  // const { hasAppliedHotel, applyToHotel, unApplyToHotel } = useContext(UserContext);
-  // const [applied, setApplied] = useState(true);
-  // const [trip, setTrip] = useLocalStorage(true);
-  const history = useHistory();
-  const { isLoggedIn } = useContext(UserContext);
+  console.debug("HotelDetail");
+
  
   return (
     <section className="has-icons-left"
@@ -77,9 +70,6 @@ function HotelDetail(props) {
             <br></br>
             <p className="text-center">About Room:</p> {props.hotel.offers[0].room.description.text}
           </CardText>
-          {/* { isLoggedIn ? 
-             ((applied) ? unappliedButton : applyButton) : null
-            }          */}
         </CardBody>
       </Card>
     </section>

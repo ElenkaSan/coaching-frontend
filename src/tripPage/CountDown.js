@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
 import DateInput from "./DateInput";
 import "./CountDown.css";
-import Axios from "axios";
-
+// import Axios from "axios";
 // import Countdown from 'react-countdown';
 
 const CountDown = (props, findTripByUser) => {

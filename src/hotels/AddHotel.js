@@ -1,12 +1,6 @@
-import React, { 
-  useContext,
-   useState } from "react";
-// import { Link } from "react-router-dom";
-import Api from "../api";
+import React, { useState } from "react";
 import AmadeusApi from "../amadeusApi";
-import UserContext from "../auth/UserContext";
 import HotelDetail from "./HotelDetail";
-// import HotelCard from "./HotelCard";
 import SearchHotels from "./SearchHotels";
 import LoadingSpinner from "../common/LoadingSpinner";
 import Alert from 'react-bootstrap/Alert'
@@ -25,12 +19,6 @@ const AddHotel = () => {
     const [hotels, setHotels] = useState([]);
     const [show, setShow] = useState(true);
     const [hasErrors, setHasErrors] = useState(false);
-    const [offerId, setOfferId] = useState(null);
-
-    // const [trip, setTrip] = useLocalStorage(null);
-    const [trip, setTrip] = useState([]);
-    const [tripId, setTripId] = useState(new Set([]));
-    const { isLoggedIn } = useContext(UserContext);
 
     //upon initial load, show all hotels for the choosen dates.
     const findHotels = async (formData) => {

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext } from "react"
 import { Switch, Route, Redirect } from "react-router-dom"
 import Homepage from "../homepage/Homepage"
 import AddHotel from "../hotels/AddHotel"

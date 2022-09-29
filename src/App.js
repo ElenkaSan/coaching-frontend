@@ -27,8 +27,6 @@ function App() {
   const [applicationIds, setApplicationIds] = useState(new Set([]));
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
-  const [trip, setTrip] = useLocalStorage(true);
-
 
   console.debug(
     "App",
@@ -147,15 +145,11 @@ function App() {
           setIsLoggedIn,
           updateCurrentUser,
           applicationIds,
-          // findTripByUser,
-          // addNewTrip
         }}
       >
         <div className="App">
           <Navigation logout={logout} />
           <Routes login={login} signup={signup} 
-          // updateUser={updateUser} 
-          // addNewTrip={addNewTrip}
           />
         </div>
       </UserContext.Provider>
@@ -164,195 +158,3 @@ function App() {
 }
 
 export default App;
-
-//   // Add / remove Flight 
-//   static async addingFlight(username, flight_info, flightId) {
-//     // flight_info- create flight inside flight table
-
-// // const preCheck = await db.query(
-// //       `SELECT id
-// //        FROM flightReservations
-// //        WHERE id = $1`, [flightId]);
-// // const flight = preCheck.rows[0];
-// // if (!flight) throw new NotFoundError(`No flight: ${flightId}`);
-
-// const preCheck1 = await db.query(
-//   `SELECT username
-//    FROM users
-//    WHERE username = $1`, [username]);
-// const user = preCheck1.rows[0];
-// if (!user) throw new NotFoundError(`No username: ${username}`);
-
-// //  create flight ALL first 
-// const preCheck2 = await db.query(
-// `SELECT flightReservations
-//  FROM flightReservations
-//  WHERE numberOfPassengers = $1,
-//        location_departure = $2,
-//        location_arrival = $3,
-//        departureDate = $4,
-//        returnDate = $5,
-//        price = $6,
-//        currency $7`, [flight_info]);
-// const flight_in = preCheck2.rows[0];
-// if (!flight_in) throw new NotFoundError(`No flight add: ${flight_info}`);
-
-// //  then get id - !
-// //  then connect  
-// // id 
-// // numberOfPassengers  
-// // location_departure 
-// // location_arrival 
-// // departureDate
-// // returnDate
-// // price 
-// // currency 
-
-// await db.query(
-//       `INSERT INTO trips (flightReservation_id, username)
-//       VALUES ($1, $2)`,
-//       [flightId, username]);
-// }
-
-// static async removeFlight(username, flightId) {
-// const preCheck = await db.query(
-//     `SELECT id
-//      FROM flightReservations
-//      WHERE id = $1`, [flightId]);
-// const flight = preCheck.rows[0];
-// if (!flight) throw new NotFoundError(`No flight: ${flightId}`);
-
-// const preCheck2 = await db.query(
-//     `SELECT username
-//      FROM users
-//      WHERE username = $1`, [username]);
-// const user = preCheck2.rows[0];
-// if (!user) throw new NotFoundError(`No username: ${username}`);
-
-// const preCheck3 = await db.query(
-//     `SELECT username, flightReservation_id 
-//      FROM trips
-//      WHERE username = $1 and 
-//            flightReservation_id = $2`, [username, flightId]);
-// const trips = preCheck3.rows[0];
-// if (!trips) throw new NotFoundError(`No trips with flight found: ${username}, ${flightId}`);
-
-// await db.query(
-//     `DELETE FROM trips 
-//      WHERE username = $1 and 
-//            flightReservation_id = $2`, [username, flightId]);
-// return true;
-// }
-
-// // Add / remove hotel
-// static async addingHotel(username, hotel_info) {
-// // create hotel ALL first 
-//  //  then get id - !
-//  //  then connect  
-// const preCheck = await db.query(
-//   `INSERT INTO hotelReservations AS "hotel_info" (id, 
-//                                       hotelName,
-//                                       roomType,
-//                                       checkInDate,
-//                                       checkOutDate,
-//                                       numberOfGuests,
-//                                       roomsNumber,
-//                                       price,
-//                                       currency)
-//        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`, [id, 
-//         hotelName,
-//         roomType,
-//         checkInDate,
-//         checkOutDate,
-//         numberOfGuests,
-//         roomsNumber,
-//         price,
-//         currency]);
-//   const hotel_in = preCheck.rows[0];
-//   if (!hotel_in) throw new NotFoundError(`No hotel add: ${id, 
-//     hotelName,
-//     roomType,
-//     checkInDate,
-//     checkOutDate,
-//     numberOfGuests,
-//     roomsNumber,
-//     price,
-//     currency}`);
-
-// //    const preCheck2 = await db.query(
-// //       `SELECT id
-// //        FROM hotelReservations
-// //        WHERE id = $1`, [hotelId]);
-// // const hotel = preCheck2.rows[0];
-// // if (!hotel) throw new NotFoundError(`No hotel: ${hotelId}`);
-// // INSERT INTO trips AS t (id, username, flightReservation_id AS "flightId", hotelReservation_id AS "hotelId")
-
-// const preCheck4 = await db.query(
-//   `INSERT INTO t.hotelReservation_id AS "hotelId"
-//    SELECT hotelName, roomType, checkInDate, checkOutDate, numberOfGuests, roomsNumber, price, currency
-//    FROM hotelReservation AS "hotel_info"
-//    WHERE t.hotelId = $1`, [hotel_info]);
-// const hotels = preCheck4.rows[0];
-//  if (!hotels) throw new NotFoundError(`No hotel_trip Table: ${hotel_info}`);
-
-//  const preCheck2 = await db.query(
-//   `SELECT t.hotelReservation_id AS "hotelId"
-//    FROM trips AS t
-//    WHERE t.hotelId = $1, t.username = $2`, [username, hotel_info]);
-//   const hotel = preCheck2.rows[0];
-//   if (!hotel) throw new NotFoundError(`No hotel hotel_info: ${hotel_info}`);
-
-// //  const preCheck2 = await db.query(
-// //   `SELECT t.hotelReservation_id AS "hotelId"
-// //     FROM trips AS t
-// //     WHERE t.username = $1`, [username]);
-// //  user.trips = userTripRes.rows.map(t => t.hotelReservation_id);
-// //  const hotel = preCheck2.rows[0];
-// //  if (!hotel) throw new NotFoundError(`No trip Table: ${username}`);
-
-// const preCheck1 = await db.query(
-//   `SELECT username
-//    FROM users
-//    WHERE username = $1`, [username]);
-// const user = preCheck1.rows[0];
-// if (!user) throw new NotFoundError(`No username: ${username}`);
-
-// await db.query(
-//       `INSERT INTO trips (hotelReservation, username)
-//       VALUES ($1, $2)`,
-//       [hotel_info, username]);
-
-// }
-
-
-
-
-// static async removeHotel(username, hotelId) {
-// const preCheck = await db.query(
-//     `SELECT id
-//      FROM hotelReservations
-//      WHERE id = $1`, [hotelId]);
-// const hotel = preCheck.rows[0];
-// if (!hotel) throw new NotFoundError(`No hotel: ${hotelId}`);
-
-// const preCheck2 = await db.query(
-//     `SELECT username
-//      FROM users
-//      WHERE username = $1`, [username]);
-// const user = preCheck2.rows[0];
-// if (!user) throw new NotFoundError(`No username: ${username}`);
-
-// const preCheck3 = await db.query(
-//     `SELECT username, hotelReservation_id
-//      FROM trips
-//      WHERE username = $1 and 
-//            hotelReservation_id = $2`, [username, hotelId]);
-// const trips = preCheck3.rows[0];
-// if (!trips) throw new NotFoundError(`No trips with hotel found: ${username}, ${hotelId}`);
-
-// await db.query(
-//     `DELETE FROM trips 
-//      WHERE username = $1 and 
-//            hotelReservation_id = $2`, [username, hotelId]);
-// return true;
-// }

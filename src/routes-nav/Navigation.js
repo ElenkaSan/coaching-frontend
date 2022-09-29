@@ -8,7 +8,7 @@ import {TbHaze} from "react-icons/tb"
 
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from 'react-bootstrap/Dropdown'
-
+// import profily1 from '../img/findTrip.png';
 import flighty from '../img/flight.png';
 import hotl from '../img/hotel.png';
 import profily from '../img/user.png';
@@ -17,7 +17,7 @@ import DEFAULT  from '../img/trip.png';
 import sign from '../img/signup.png';
 import logouty from '../img/logout.png';
 import log from '../img/login.png';
-import profily1 from '../img/findTrip.png';
+
 
 // Navbar provides the navigation in the Navbar of the app.
 // It will show navlinks based on whether a user is logged in or not.
@@ -51,18 +51,12 @@ function Navigation({ logout }) {
                           <NavLink to="/flights" type="Flights">   
                             <h3> <img src={flighty} alt="flight" style={{ height:'30px', width:'30px'}} /> </h3>
                           </NavLink>
-                        {/* </Dropdown.Item>
-                        <Dropdown.Item > */}
                           <NavLink to="/hotels" type="Hotels"> 
                             <h3> <img src={hotl} alt="hotel" style={{ height:'30px', width:'30px'}} /> </h3>
                           </NavLink>
-                        {/* </Dropdown.Item>
-                        <Dropdown.Item> */}
                           <NavLink to="/profile" type="Profile">  
                             <h3> <img src={profily} alt="profile"style={{ height:'30px', width:'30px'}} /> </h3>
                           </NavLink>
-                        {/* </Dropdown.Item>
-                        <Dropdown.Item> */}
                           <NavItem>
                             <h3 className="btn nav mx-auto my-2" onClick={handleClick} type="logout">  {/* <FaSignOutAlt /> Bye!  */}
                               <img src={logouty} alt="logout" style={{ height:'30px', width:'30px'}} />
@@ -109,19 +103,13 @@ function Navigation({ logout }) {
                           <NavLink to="/flights" type="Flights">
                             <h3> <img src={flighty} alt="flight" style={{ height:'30px', width:'30px'}} /> </h3>
                            </NavLink>
-                        {/* </Dropdown.Item>
-                        <Dropdown.Item > */}
                           <NavLink to="/hotels" type="Hotels">  
                             <h3> <img src={hotl} alt="hotel" style={{ height:'30px', width:'30px'}} /> </h3>
                           </NavLink>
-                        {/* </Dropdown.Item>
-                        <Dropdown.Item> */}
                           <NavLink to="/login" type="login"> 
                             <h3> <img src={log}alt="login" style={{ height:'30px', width:'30px'}} />  {/* <FaSignInAlt /> */}
                             </h3>
                           </NavLink>
-                        {/* </Dropdown.Item>
-                        <Dropdown.Item> */}
                           <NavLink to="/signup" type="signup"> 
                             <h3> <img src={sign} alt="signup" style={{ height:'30px', width:'30px'}} />  {/* <MdSwitchAccount />  */}
                             </h3> 

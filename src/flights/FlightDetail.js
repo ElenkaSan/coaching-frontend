@@ -1,7 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { Card, CardBody, CardHeader, CardText } from "reactstrap";
-import { useHistory } from "react-router-dom";
-import UserContext from "../auth/UserContext";
 import moment from 'moment';
 import './flight.css'
 
@@ -11,11 +9,7 @@ import './flight.css'
 //IT will show the remove button, if the user has saved to the hotel previously.
 
 function FlightDetail(props) {
-    // console.debug("FlightDetail");
-    // const { hasAppliedFlight, applyToFlight, unApplyToFlight } = useContext(UserContext);
-    // const [applied, setApplied] = useState(true);
-    const history = useHistory();
-      const { isLoggedIn } = useContext(UserContext);
+    console.debug("FlightDetail");
 
    
     const timeTraveled = () => {
@@ -189,9 +183,6 @@ function FlightDetail(props) {
               </div>
             )}
             </CardText>
-            {/* { isLoggedIn ? 
-             ((applied) ? unappliedButton : applyButton) : null
-            } */}
             </CardBody>
           </Card>
         </section>
