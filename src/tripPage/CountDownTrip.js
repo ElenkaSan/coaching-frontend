@@ -5,22 +5,22 @@ import EventCountdown from "./EventCountdown";
 import "./CountDown.css";
 
 const CountDownTrip = () => {
-    const [eventList , setEventList] = useState([]);
+    const [save , setSave] = useState([]);
     const [warning , setWarning] = useState(false);
-  const [event, setEvent] = useState({
+    const [event, setEvent] = useState({
     name: "",
     date: "",
   });
 
   useEffect(() => {
-    if ( localStorage.getItem("eventList")){
-      setEventList(JSON.parse(localStorage.getItem("eventList")));
+    if ( localStorage.getItem("save")){
+      setSave(JSON.parse(localStorage.getItem("save")));
   }
   },[]);
 
   useEffect(() => {
-    localStorage.setItem("eventList", JSON.stringify(eventList));
-  }, [eventList]);
+    localStorage.setItem("save", JSON.stringify(save));
+  }, [save]);
 
   const onInputChange = (e) => {
     setEvent({ ...event, [e.target.name]: e.target.value });
@@ -28,7 +28,7 @@ const CountDownTrip = () => {
 
   const onFormSubmit = (e) => {
     if (new Date(event.date) >= new Date()){
-    setEventList((prevValue) => [...prevValue, event])
+    setSave((prevValue) => [...prevValue, event])
     setWarning(false)
   } else {
     setWarning(true);    
@@ -39,7 +39,7 @@ const CountDownTrip = () => {
 
 
   const deleteEvent = (id) => {
-    setEventList(prevEventList => {
+    setSave(prevEventList => {
       return prevEventList.filter((noteItem, index) => {
         return index !== id;
       });
@@ -59,7 +59,7 @@ const CountDownTrip = () => {
             date={event.date}
             warning={warning}
           />
-         { eventList.map((items,i) => (
+         {save.map((items,i) => (
          <div key={i}>
          <EventCountdown data={items} id={i} onDelete={deleteEvent}/>
          </div>

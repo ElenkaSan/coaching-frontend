@@ -4,7 +4,7 @@ import Item from "./Item";
 import { Card, CardHeader, CardBody } from "reactstrap";
 import "./item.css";
 
-const PackingList = props => {
+const PackingList = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {

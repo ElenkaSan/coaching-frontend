@@ -12,6 +12,7 @@ const WeatherPage = (props) => {
     location: '',
     searchTerm: ''
   });
+  
 
   useEffect(() => {
     if ( localStorage.getItem("data")){
