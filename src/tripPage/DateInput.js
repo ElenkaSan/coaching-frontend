@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Axios from "axios";
 
 class DateInput extends Component {
   constructor(props) {
@@ -18,13 +17,10 @@ class DateInput extends Component {
     this.editor = (
       <input
         type="date"
-        // type="text"
         className="date-change-input"
         defaultValue={this.props.date}
         onKeyPress={event => {
-          const key = typeof event.which === "undefined" ? event.keyCode : event.which
-     
-          // charCode
+          const key = event.which || event.keyCode;
           if (key === 13) {
             // if user hits the "enter" key, save input value
             this.save(event.target.value);
@@ -48,13 +44,6 @@ class DateInput extends Component {
       date: value,
       editing: false
     });
-    Axios.put(`profile/date/${this.props.tripId}`, {
-      date: value
-    }).then(res => {
-      if (this.state.date !== res.data.date) {
-        this.setState({ date: res.data.date });
-      }
-    });
   }
 
   componentDidUpdate(prevProps) {
@@ -62,14 +51,9 @@ class DateInput extends Component {
     if (
       prevProps.tripId !== this.props.tripId ||
       this.props.date !== this.state.date
-    ) {
-      if(this.props.tripId){
-        Axios.get(`profile/getdate/${this.props.tripId}`).then(res => {
-          this.setState({ date: res.data.date });
-        });
-      }
-    }
+    );
   }
+
 
   render() {
     return this.state.editing ? (

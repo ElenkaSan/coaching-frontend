@@ -2,21 +2,21 @@ import React, { useState, useEffect } from "react";
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
 import DateInput from "./DateInput";
 import "./CountDown.css";
-// import Axios from "axios";
-// import Countdown from 'react-countdown';
 
-const CountDown = (props, findTripByUser) => {
-  const [date, setDate] = useState("");
+const CountDown = props => {
+  // const [date, setDate] = useState("");
+  const [date, setDate] = useState([]);
   const [delay, setDelay] = useState(1000);
-  const [count, setCount] = useState(0);
-  // const [date, setDate] = React.useState(localStorage.getItem('date'+distance))
-  // const [showBanner, setShowBanner] = useState(true);
 
-  React.useEffect((count) => {
-    const parsedCount = Number(localStorage.getItem('date'+count) || 0)
-    setCount(parsedCount)
-  }, [])
-  localStorage.getItem(`date ${count}`, date)
+  useEffect(() => {
+    if ( localStorage.getItem("date")){
+      setDate(JSON.parse(localStorage.getItem("date")));
+  }
+  },[]);
+
+  useEffect(() => {
+    localStorage.setItem("date", JSON.stringify(date));
+  }, [date]);
 
   const dateCountDown = date;
 
@@ -25,29 +25,26 @@ const CountDown = (props, findTripByUser) => {
     setDelay(event);
   };
 
-  // useEffect(() => {
-  //   const data = window.localStorage.getItem('Date');
-  //   if ( data !== null ) setShowBanner(JSON.parse(data));
-  // }, []);
-
-  // useEffect(() => {
-  //   window.localStorage.setItem('MY_APP_STATE', JSON.stringify(showBanner));
-  // }, [showBanner]);
-
   useEffect(() => {
     // if(props.tripId){
-    //   Axios.get(`profile/getdate/${props.tripId}`).then(res => {
+    //   Axios.get(`/getdate/${props.tripId}`).then(res => {
     //     setDate(res.data.date);
     //   });
-    //   // window.localStorage.setItem('Date', JSON.stringify(props.tripId));
     // }
-
+    
+    // Update the count down every 1 second
     const x = setInterval(
       function() {
+        // Get today's date and time
         const now = new Date().getTime();
+
+        // Set the date we're counting down to
         const tripDate = Date.parse(dateCountDown);
+
+        // Find the distance between now and the count down date
         const distance = tripDate - now;
 
+        // Time calculations for days, hours, minutes and seconds
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor(
           (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
@@ -61,43 +58,19 @@ const CountDown = (props, findTripByUser) => {
           document.getElementById("countdown-num").innerHTML =
             days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
+          // If the count down is finished, display text
           if (distance < 0) {
-
-            localStorage.setItem('timeLeft', distance);
-
             clearInterval(x);
             document.getElementById("countdown-num").innerHTML =
-            "Hooray! It's vacation time!";
+              "Time to party";
           }
         }
-
-        // localStorage.setItem('timeLeft', distance);
-        // distance-- || (clearInterval(x), setDate());
-
       },
       1000,
       delay
     );
     return () => clearInterval(x);
   });
-
-  // window.onload = function () {
-  //   let timeInterval = 100;
-  //   //check if you have the last counter value
-  //   let timeLeft = localStorage.getItem('timeLeft');
-  //   if (isNaN(timeLeft)) {
-  //       //save the current interval
-  //       localStorage.setItem('timeLeft', timeInterval);
-  //   } else if (timeLeft === 0) {
-  //       //save the current interval
-  //       localStorage.setItem('timeLeft', timeInterval);
-  //   } else {
-  //       // take the last saved value
-  //       timeInterval = timeLeft;
-  //   }}
-
-  // const CountdownWrapper = () => <Countdown date={date} handleInputChange={handleInputChange} tripId={props.tripId}/>;
-  // const MemoCountdown = React.memo(CountdownWrapper);
 
   return (
     <div>
@@ -124,6 +97,6 @@ const CountDown = (props, findTripByUser) => {
       </Card>
     </div>
   );
-};
+}; 
 
 export default CountDown;

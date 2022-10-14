@@ -133,6 +133,20 @@ function App() {
     setIsLoggedIn(newUser);
   };
 
+  async function Adding(data) {
+    try {
+      let item = await Api.addItemsCount(isLoggedIn.username, data);
+      setApplicationIds(new Set(isLoggedIn.applications));
+      updateUser(item);
+      // findTripByUser(isLoggedIn.username)
+      return { success: true };
+    } catch (err) {
+      console.error(err);
+      setIsLoggedIn(null);
+      return [false, err.message];
+    }
+  }
+
 
   if (!infoLoaded) return <LoadingSpinner />;
 
@@ -145,6 +159,7 @@ function App() {
           setIsLoggedIn,
           updateCurrentUser,
           applicationIds,
+          Adding
         }}
       >
         <div className="App">

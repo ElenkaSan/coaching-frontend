@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useEffect} from "react";
 import AddItemForm from "./AddItemForm";
 import Item from "./Item";
 import { Card, CardHeader, CardBody } from "reactstrap";
@@ -7,6 +7,17 @@ import "./item.css";
 const PackingList = props => {
   const [items, setItems] = useState([]);
 
+  useEffect(() => {
+    if ( localStorage.getItem("items")){
+      setItems(JSON.parse(localStorage.getItem("items")));
+  }
+  },[]);
+
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(items));
+  }, [items]);
+
+  
   const addTodo = todo => {
    if(!todo.text || /^\s*$/.test(todo.text)) {
     return
@@ -39,14 +50,13 @@ const PackingList = props => {
     setItems(updateTodo)
   }
 
-
   return (
     <Card className="bg-transparent border-warning">
-      <CardHeader className="border-warning text-center text-info T">Packing List</CardHeader>
+      <CardHeader className="border-warning text-center text-info T lead countdown-header">Packing List</CardHeader>
       <CardBody className="item-list">
         <br></br>
         <AddItemForm onSubmit={addTodo} />
-        <Item items={items} completeItem={completeItem} removeItem={removeItem} updateItem={updateItem}/>
+        <Item  items={items} completeItem={completeItem} removeItem={removeItem} updateItem={updateItem}/>
       </CardBody>
     </Card>
   );

@@ -12,7 +12,6 @@ import {
 	CardTitle
 } from 'reactstrap';
 import Form from 'react-bootstrap/Form'
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { MdDeleteForever } from "react-icons/md";
 import { FiSave } from "react-icons/fi";
 import { BsArrow90DegUp }  from "react-icons/bs";
@@ -29,8 +28,7 @@ const ProfileForm = ({ updateUser}) => {
     lastName: isLoggedIn.lastName,
     email: isLoggedIn.email,
     username: isLoggedIn.username,
-    password: '',
-    notes: isLoggedIn.notes
+    password: ''
   }
 const [formData, setFormData] = useState(INITIAL_STATE);
 const [hasErrors, setHasErrors] = useState([]);
@@ -52,8 +50,7 @@ const history = useHistory();
       firstName: formData.firstName,
       lastName: formData.lastName,
       email: formData.email,
-      password: formData.password,
-      notes: formData.notes
+      password: formData.password
     };
 
     let username = formData.username;
@@ -159,20 +156,6 @@ const history = useHistory();
                     value={formData.password}
                     onChange={handleChange}
                   />
-                  </div>
-                  <div className="T form-group font-weight-bold font-italic text-warning">
-                  <FloatingLabel
-                      htmlFor="notes"
-                      controlId="floatingTextarea"
-                      className="mb-3"
-                     > Your Trip Notes         
-                    </FloatingLabel>
-                    <Form.Control as="textarea" placeholder="Leave a comment here" 
-                     name="notes"
-                     id="notes"
-                     value={formData.notes}
-                     onChange={handleChange}
-                     />
                   </div>
                   <Button  
                   className="btn btn-info float-lefts"

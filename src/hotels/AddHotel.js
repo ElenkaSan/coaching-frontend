@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AmadeusApi from "../amadeusApi";
 import HotelDetail from "./HotelDetail";
 import SearchHotels from "./SearchHotels";
@@ -19,6 +19,16 @@ const AddHotel = () => {
     const [hotels, setHotels] = useState([]);
     const [show, setShow] = useState(true);
     const [hasErrors, setHasErrors] = useState(false);
+
+    useEffect(() => {
+      if ( localStorage.getItem("hotels")){
+        setHotels(JSON.parse(localStorage.getItem("hotels")));
+    }
+    },[]);
+  
+    useEffect(() => {
+      localStorage.setItem("hotels", JSON.stringify(hotels));
+    }, [hotels]);
 
     //upon initial load, show all hotels for the choosen dates.
     const findHotels = async (formData) => {

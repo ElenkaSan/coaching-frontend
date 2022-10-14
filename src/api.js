@@ -3,7 +3,8 @@ const axios = require("axios");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001"; 
+// const BASE_URL = process.env.REACT_APP_BASE_URL || "https://vacation-back.herokuapp.com/";
 
 /** API Class.
  * Static class tying together methods used to get/send to to the API.
@@ -65,6 +66,16 @@ class Api {
   static async deleteUser(username){
       let res = await this.backendRequest(`users/${username}`, {}, "delete");
       return res.data;
+  }
+
+  static async addItemsCount(username, data) {
+    let res = await this.backendRequest(`users/${username}/add-items-countdown`, data, "post");
+    return res.user;
+  }
+
+  static async getInfoTrip(username, data) {
+    let res = await this.backendRequest(`users/${username}/getTrip`, data);
+    return res.user;
   }
 
 }

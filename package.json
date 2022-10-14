@@ -60,7 +60,8 @@
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "surge": "REACT_APP_BASE_URL=https://vacation-back.herokuapp.com npm run build && cp build/index.html build/200.html && surge build wiry-ground.surge.sh && echo https://wiry-ground.surge.sh"
   },
   "eslintConfig": {
     "extends": [

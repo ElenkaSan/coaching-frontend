@@ -10,7 +10,6 @@ import {
 	CardTitle
 } from 'reactstrap';
 import Form from 'react-bootstrap/Form'
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Alert from 'react-bootstrap/Alert'
 import { BsArrow90DegUp } from "react-icons/bs";
 import { MdSwitchAccount } from "react-icons/md";
@@ -28,8 +27,7 @@ function SignupForm({ signup }) {
     password: '',
     firstName: '',
     lastName: '',
-    email: '',
-    notes: ''
+    email: ''
   }
   const [formData, setFormData] = useState(INITIAL_STATE);
   const [hasErrors, setHasErrors] = useState([]); 
@@ -147,19 +145,6 @@ function SignupForm({ signup }) {
               onChange={handleChange}
               required
             />
-          </div>
-          <div className="form-group font-weight-bold font-italic text-warning">
-            <FloatingLabel htmlFor="notes"
-              controlId="floatingTextarea" className="mb-3"
-              > Your Trip Notes         
-              </FloatingLabel>
-              <Form.Control as="textarea"
-                placeholder="Leave a comment here" 
-                name="notes"
-                id="notes"
-                value={formData.notes}
-                onChange={handleChange}
-                />
           </div>
           <Button to="/" className="btn btn-outline-info float-left" style={{ color: '#bfe64b' }} type="submit" onSubmit={handleSubmit}>
             <h4><MdSwitchAccount /> </h4> 

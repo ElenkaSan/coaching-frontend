@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AmadeusApi from "../amadeusApi";
 import SearchFlights from "./SearchFlights";
 import FlightDetail from "./FlightDetail";
@@ -17,6 +17,16 @@ const AddFlight = () => {
     const [flights, setFlights] = useState([]);
     const [show, setShow] = useState(true);
     const [hasErrors, setHasErrors] = useState(false);
+
+    useEffect(() => {
+      if ( localStorage.getItem("flights")){
+        setFlights(JSON.parse(localStorage.getItem("flights")));
+    }
+    },[]);
+  
+    useEffect(() => {
+      localStorage.setItem("flights", JSON.stringify(flights));
+    }, [flights]);
 
     //upon intial render, get all around flights 
     const  flightSearchAround = async (formData) => {

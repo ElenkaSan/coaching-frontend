@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Form, Button, Input } from "reactstrap";
 
 
-    const AddItemForm = (props) => {
+const AddItemForm = (props) => {
   const [value, setValue] = useState(props.edit ? props.edit.value : '');
 
   const inputRef = useRef(null)
@@ -34,11 +34,12 @@ import { Form, Button, Input } from "reactstrap";
          <Input
         type="text"
         placeholder="Update Your Todo"
-        className="input"
+        className="input num"
         value={value}
         onChange={handleChange}
         ref={inputRef}
       />
+      <br></br>
       <Button className="btn btn-warning">
         Update Todo
       </Button> </>) : 
@@ -46,14 +47,16 @@ import { Form, Button, Input } from "reactstrap";
       <Input
         type="text"
         placeholder="Add a Todo"
-        className="input"
+        className="input num"
         value={value}
         onChange={handleChange}
         ref={inputRef}
       />
-      <Button className="btn btn-info">
+      <br></br>
+      <Button className="bg-info float-right">
         Add Todo
       </Button>
+      <br></br>
       </>)
       }
     </Form>

@@ -13,6 +13,16 @@ const WeatherPage = (props) => {
     searchTerm: ''
   });
 
+  useEffect(() => {
+    if ( localStorage.getItem("data")){
+      setData(JSON.parse(localStorage.getItem("data")));
+  }
+  },[]);
+
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(data));
+  }, [data]);
+
   const { days, location, searchTerm } = data;
 
   // useEffect replaces componentDidMount. Denver will show until the user types a search.

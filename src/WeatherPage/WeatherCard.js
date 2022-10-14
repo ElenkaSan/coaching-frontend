@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, CardHeader, CardBody } from 'reactstrap';
-require("dotenv").config();
 
 const weatherUrl = "https://www.weatherbit.io/static/img/icons";
 const WeatherDayCard = (props) => {
@@ -12,7 +11,6 @@ const WeatherDayCard = (props) => {
         <CardBody>
           <p className='current-weather'>{props.current}°</p>
           <img
-            // src={`${process.env.PUBLIC_URL}/icons/${props.icon}.png`}
             src={`${weatherUrl}/${props.icon}.png`}
             alt={props.description}
           />

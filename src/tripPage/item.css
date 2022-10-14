@@ -94,7 +94,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 4px auto;
-    color: #fff;
+    /* color: #fff; */
     background: linear-gradient(
       90deg,
       rgba(255, 118, 20, 1) 0%,
@@ -106,6 +106,18 @@
     width: 90%;
   }
   
+  .todo-rows {
+    /* padding: 0.1px; */
+    /* border-radius: 5px; */
+    width: 90%;
+    margin: 4px auto;
+    background: linear-gradient(
+      90deg,
+      rgba(20, 159, 255, 1) 0%,
+      rgba(17, 122, 255, 1) 100%
+    );
+  }
+
   .todo-row:nth-child(4n + 1) {
     background: linear-gradient(
       90deg,

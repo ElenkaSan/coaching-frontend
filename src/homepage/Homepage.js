@@ -31,7 +31,7 @@ return (
         {isLoggedIn
           ? (<>         
             <CardTitle>
-              <h2 className="S text-info font-weight-bold"> {`Welcome ${isLoggedIn.username}!`} </h2>
+              <h2 className="T text-info font-weight-bold"> {`Welcome ${isLoggedIn.username}!`} </h2>
               <hr />
             </CardTitle>
             <CardText>
