@@ -14,6 +14,10 @@ import findH from '../img/findH.png';
 import mount from '../img/mount.png';
 import travelBudget from '../img/travelBudget.png'
 
+import flighty from '../img/flight.png';
+import hotl from '../img/hotel.png';
+import profily from '../img/user.png';
+
 // Home component is the splash page for the app. 
 // It will render a login/signup elements if the user is not logged.
 // It will render User profile page and Trip page elements if the user is logged id.
@@ -40,15 +44,14 @@ return (
                   Thank you for creating an account. Find the best vacation for yourself. 
                 </h5>
                 <h5 className="text-left">
-                  Navigation: <br></br>You can search for flights, hotels and 
-                  then by saving each one you will create a trip list. 
-                  After that you can see it on the travel page.
-                </h5>
-                <h5>Here you can check the Weather Forecast: &nbsp;
-                <Link className="" to="/weather" type="weather"> 
-                <img src={weathers} alt="weather" style={{ height:'50px', width:'50px'}} />
-                {/* <h4> <TiWeatherPartlySunny /> </h4>   */}
-                </Link>
+                  Navigation: <br></br>
+                  You can search for flights <Link className="btn " to="/flights" type="flights"> <img src={flighty} alt="profile"style={{ height:'30px', width:'30px'}} /> </Link> 
+                  and hotels  <Link className="btn " to="/hotels" type="profile"> <img src={hotl} alt="profile"style={{ height:'30px', width:'30px'}} />
+                        </Link>  <br></br>
+                  On the User Page &nbsp; 
+                        <Link className="btn " to="/profile" type="profile"> <img src={profily} alt="profile"style={{ height:'30px', width:'30px'}} />
+                        </Link> you can conveniently save your any notes you've made in your personalized list. 
+                  Start count down your trip date or any event, and check the Weather Forecast.
                 </h5>
               </div>
             </CardText>
@@ -57,10 +60,15 @@ return (
               <div className="col-sm-6 p-2">
                 <div className="card bg-light">
                   <img src={mount} className="card-img-top img-thumbnail" alt="Girl flight" />
-                    <div className="card-body">
+                    <div className="card-body text-left">
+                    <h5>Here you can check the Weather Forecast: &nbsp;
+                <Link className="" to="/weather" type="weather"> 
+                <img src={weathers} alt="weather" style={{ height:'50px', width:'50px'}} />
+                {/* <h4> <TiWeatherPartlySunny /> </h4>   */}
+                </Link>
+                </h5>
                       {/* <h5 className="card-title">Can rename trip or delete all trip.</h5> */}
-                        <Link className="btn todo-button float-left" to="/profile" type="profile"> Profile
-                        </Link>
+                     
                     </div>
                 </div>
               </div>

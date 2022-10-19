@@ -23,7 +23,7 @@ const Item = ({items, completeItem, removeItem, updateItem }) => {
   return items.map((todo, index) => (
     <div className={todo.isComplete ? 'todo-row complete' : 'todo-row'} key={index}>
       <div key={todo.id} onClick={() => completeItem(todo.id)}>
-        <h4 className="mb-1">{todo.text}</h4>
+        <h4 className="mb-1 text-light T">{todo.text}</h4>
         </div>
         <div className="icons">
             <AiFillCloseCircle 
