@@ -4,7 +4,12 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001"; 
+
+//Build Front Surge
 // const BASE_URL = process.env.REACT_APP_BASE_URL || "https://vacation-back.herokuapp.com/";
+// $ REACT_APP_BASE_URL=https://vacation-back.herokuapp.com npm run build
+// $ cp build/index.html build/200.html
+// $ surge build
 
 /** API Class.
  * Static class tying together methods used to get/send to to the API.

@@ -17,6 +17,7 @@ import travelBudget from '../img/travelBudget.png'
 import flighty from '../img/flight.png';
 import hotl from '../img/hotel.png';
 import profily from '../img/user.png';
+import findTrip from '../img/mytrip.png';
 
 // Home component is the splash page for the app. 
 // It will render a login/signup elements if the user is not logged.
@@ -106,9 +107,17 @@ return (
                         The same idea when you planning your trip earlier with booking flights, hotel and rental-car two or three months before travel.
                       </p>
                       <CardText>
-                        <p className="fw-semibold">
-                        Enjoy your travel hunting and please login or sign up if you wish to create your trip list!</p>
-                        <NoLoggedIn />
+                      <p className="fw-semibold">
+                        You can search for flights <Link className="btn " to="/flights" type="flights"> <img src={flighty} alt="profile"style={{ height:'30px', width:'30px'}} /> </Link> 
+                        and hotels  <Link className="btn " to="/hotels" type="profile"> <img src={hotl} alt="profile"style={{ height:'30px', width:'30px'}} />
+                        </Link> 
+                        Here you can check the Weather Forecast: &nbsp;
+                        <Link className="" to="/weather" type="weather"> 
+                        <img src={findTrip} alt="weather" style={{ height:'30px', width:'30px'}} /> </Link>
+                        <br></br>
+                        Enjoy your travel hunting and please login or sign up if you wish to create your trip list!
+                      </p> 
+                      <NoLoggedIn />
                       </CardText>
                   </div>
               </div>

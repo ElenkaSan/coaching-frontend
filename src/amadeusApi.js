@@ -3,13 +3,17 @@ require("dotenv").config();
 // const { AMADEUS_CLIENT_ID, AMADEUS_CLIENT_SECRET } = require("dotenv").config();
 
 const amadeus = new Amadeus({
-  clientId: process.env.API_KEY,
-  clientSecret: process.env.API_SECRET,
+  // clientId: process.env.API_KEY,
+  // clientSecret: process.env.API_SECRET,
+  clientId: "sDCxGNRT7aSXaYvbpuHzxG6kEJ4iJfnf",
+  clientSecret: "XFFQHMWuBroUtOmX",
+  // clientId: process.env.API_KEY,
+  // clientSecret: process.env.API_SECRET,
 });
 
 class AmadeusApi {
-  static clientId = process.env.AMADEUS_CLIENT_ID;
-  static clientSecret = process.env.AMADEUS_CLIENT_SECRET;
+  // static clientId = process.env.AMADEUS_CLIENT_ID;
+  // static clientSecret = process.env.AMADEUS_CLIENT_SECRET;
   
   // ======== Flights ===== https://github.com/amadeus4dev/amadeus-node/blob/master/README.md
   static async getFlightAround( originLocationCode, destinationLocationCode, departureDate, returnDate, adults) {
