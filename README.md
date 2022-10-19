@@ -1,9 +1,9 @@
-# Vacation-Front
+# Vacation-Back
 # Capstone Project 2 - Vacation Time
-### *Try the app [Vacation Time](https://wiry-ground.surge.sh/)*
+### *Try the app [Vacation Time](https://jolly-discovery.surge.sh/)*
 Ready for travel, let’s make the trip of your dreams. This website `Vacation Time` allows you to find the nice hotel, flight for you with the best price. When your make next travel destination then can do a record personalized notes for vacation planning after create an account.
-You can conveniently save your results along with any notes you've made in your personalized list. Start count down your trip date and check the forecast.
-This website allows users to create an account and save the result after that with create a list of their favorites. 
+You can conveniently save your results along with any notes you've made in your personalized list. Start count down your trip date and check the Weather forecast.
+This website allows users to create an account and save the result after that with create a list of their Packing List and CountDown trip/flight/deadlines/evens and etc. 
 
 ## App Information
 ## Back-end
@@ -19,7 +19,7 @@ cd into the "backend" directory, install required packages, create and seed data
   This will start the server on port 3001
   
 ### Data
-For this CP database that takes trip-related information from the [Priceline API](https://rapidapi.com/tipsters/api/priceline-com-provider/)
+For this CP database that takes trip-related information from the [Amadeus API](https://amadeus.com/)
 
 ```sh
 DB schema: 
@@ -30,7 +30,7 @@ DB schema:
   └── hotelReservations table
  ```
 
-<img width="1112" alt="Screen Shot 2022-09-13 at 10 41 47 PM" src="https://user-images.githubusercontent.com/75818489/190046636-681a9b5d-8626-465b-afbc-14ee0032dd5a.png">
+<img width="1142" alt="Screen Shot 2022-10-14 at 1 53 17 PM" src="https://user-images.githubusercontent.com/75818489/195910555-2d728b7e-5cd0-413f-bd87-2efe67cc0b8a.png">
 
 
 ## [Front-end](https://github.com/ElenkaSan/Capstone_Project_2_Frontend.git)
@@ -90,8 +90,10 @@ src
 │
 ├── TripPage
 │   ├── AddItemForm
-│   ├── CountDown
-|   ├── DateInput
+│   ├── CountDownTrip
+|   ├── EventCountdown
+|   ├── Forma
+|   ├── Timers
 │   ├── Item 
 |   └── PackingList
 │ 
@@ -113,7 +115,8 @@ src
 ### Functionality
 The app's functionality includes:
   - User can search flights / hotels for every place on Earth
-  - User can see CountDown thier trip and add Packing List after signup
+  - User can see CountDown thier trip (e.g. Flight time or other Events, Deadlines) and add Packing List after signup
+  - Search the Weather forecast in User page
   - User can record ideas and ruminations about the venue in your own personal note
 
 ### Technology Stack
@@ -128,6 +131,7 @@ Heroku
     - Save favorite flight / hotel results into thier User Account and Trip Page after signup
     - Automatically calculate the flights and hotel date to count down in account, analyze hotel and flight costs and create trip list
     - Book flight and hotel
+    - Car search, save and book
     - When you search for any destination in the world, you will get recommendations for nice venues and places to visit in the area and detailed information about those places including pictures and maps.
     - Create app on the phone
 
