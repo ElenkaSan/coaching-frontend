@@ -67,9 +67,7 @@ return (
                 {/* <h4> <TiWeatherPartlySunny /> </h4>   */}
                 </Link>
                 </h5>
-                      {/* <h5 className="card-title">Can rename trip or delete all trip.</h5> */}
-                     
-                    </div>
+                </div>
                 </div>
               </div>
               <div  className="col-sm-6 p-2 text-left">
