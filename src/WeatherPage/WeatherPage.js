@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {  Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import moment from 'moment';
 import WeatherSearch from './WeatherSearch';
 import WeatherCard from './WeatherCard';
@@ -92,7 +92,6 @@ const WeatherPage = (props) => {
             description={day.weather.description}
           />
         ))}
-        
       </Row>
     </div>
     </section>

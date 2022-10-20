@@ -32,9 +32,9 @@ function LoginForm({ login }) {
 
   console.debug(
     "LoginForm",
-    "login=", typeof login,
     "formData=", formData,
-    "hasLoginErrors", hasLoginErrors,
+    // "login=", typeof login,
+    // "hasLoginErrors", hasLoginErrors,
   );
 
   //This handles the inputs as they are entered in by the user and saves to state. 
@@ -112,9 +112,9 @@ function LoginForm({ login }) {
                 <Button className="btn btn-outline-info float-left" style={{ color: '#bfe64b' }} onSubmit={handleSubmit} type="Login"> 
                   <h4> <FaSignInAlt /></h4>
                 </Button>
-                <Link className="btn btn-outline-warning float-right" to='/' type="Go Back">
+                <Button className="btn btn-outline-warning float-right" to='/' type="Go Back">
                   <h4> <BsArrow90DegUp /></h4>
-                </Link>
+                </Button>
                 </FormGroup>
             </Form>
         </CardBody>
