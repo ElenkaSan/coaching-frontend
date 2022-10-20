@@ -22,7 +22,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "amadeus": "^6.0.0",
+    "amadeus": "^1.1.0",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0-beta1",
     "clsx": "^1.2.1",

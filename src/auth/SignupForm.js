@@ -149,9 +149,9 @@ function SignupForm({ signup }) {
           <Button to="/" className="btn btn-outline-info float-left" style={{ color: '#bfe64b' }} type="submit" onSubmit={handleSubmit}>
             <h4><MdSwitchAccount /> </h4> 
           </Button>
-          <Button className="btn btn-outline-warning float-right" to='/' type="Go Back">
+          <Link className="btn btn-outline-warning float-right" to='/' type="Go Back">
             <h4> <BsArrow90DegUp /></h4>
-          </Button>
+          </Link>
           </FormGroup>
         </Form>
       </CardBody>

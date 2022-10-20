@@ -35,7 +35,7 @@ import CountDownTrip from "../tripPage/CountDownTrip"
                   <h2 className="T display-6 font-weight-bold text-info"> {`${isLoggedIn.username}`} </h2>
                   <div className="m-0">
                   <Link to="/update" type="ProfileForm"> 
-                    <Button className="btn btn-lg btn-outline-warning"> 
+                    <Button to="/update" type="ProfileForm" className="btn btn-lg btn-outline-warning"> 
                     {/* <FcEditImage /> */}
                     <BsPencilSquare /> 
                        {/* Update Profile  */}

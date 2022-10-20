@@ -15,6 +15,9 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
  * Static class tying together methods used to get/send to to the API.
  * There shouldn't be any frontend-specific stuff here, and there shouldn't
  * be any API-aware stuff elsewhere in the frontend.
+ * 
+ * Axios is pretty similar to Fetch. It's also a Promise-based HTTP client and it runs in both, browsers and Node.js. 
+ * Relying on Promises, use await 
  */
 
 class Api {

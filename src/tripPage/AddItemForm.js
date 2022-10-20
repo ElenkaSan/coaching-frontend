@@ -53,7 +53,7 @@ const AddItemForm = (props) => {
         ref={inputRef}
       />
       <br></br>
-      <Button className="bg-info float-right">
+      <Button className="bg-info float-right text-dark">
         Add Todo
       </Button>
       <br></br>

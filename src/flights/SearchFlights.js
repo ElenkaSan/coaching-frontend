@@ -217,7 +217,8 @@ import { IoAirplane } from 'react-icons/io5';
                     </div>
                     <span className="input-group-btn" style={{width:'20px'}}></span>
                     <FormGroup check>
-                    <Label className="card badge bg-info text-dark text-wrap text-uppercase " style={{height: "2em"}} check> 
+                    <Label className="card bg-warning m-4 text-dark float-left" check> 
+                    {/* <h5 className='T text-warning text-lowercase'>Round-Trip </h5> */}
                     <Input className='date-num'
                         label={flightType}
                         id="type"
@@ -225,7 +226,9 @@ import { IoAirplane } from 'react-icons/io5';
                         name="type"
                         checked={checked.returnDate}
                         onChange={handleChangeCheck}
-                      />  Round-Trip
+                        value="Round-Trip"
+                      /> 
+                       Round-Trip
                     </Label>
                     </FormGroup>
                     <span className="input-group-btn" style={{width:'20px'}}></span>
@@ -233,7 +236,8 @@ import { IoAirplane } from 'react-icons/io5';
                   </div>
                     <br></br>
                     <Button className="btn btn-info btn-lg" type="submit">
-                      Search <IoAirplane /></Button>
+                      Search <IoAirplane />
+                    </Button>
                 </FormGroup>
             </Form>
           </CardBody>

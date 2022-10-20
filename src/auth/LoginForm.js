@@ -112,9 +112,9 @@ function LoginForm({ login }) {
                 <Button className="btn btn-outline-info float-left" style={{ color: '#bfe64b' }} onSubmit={handleSubmit} type="Login"> 
                   <h4> <FaSignInAlt /></h4>
                 </Button>
-                <Button className="btn btn-outline-warning float-right" to='/' type="Go Back">
+                <Link className="btn btn-outline-warning float-right" to='/' type="Go Back">
                   <h4> <BsArrow90DegUp /></h4>
-                </Button>
+                </Link>
                 </FormGroup>
             </Form>
         </CardBody>

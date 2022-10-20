@@ -30,7 +30,7 @@ const Forma = ({name, onFormSubmit, date, onInputChange, warning}) => {
           name='date' 
           onChange={onInputChange}/>
         {warning && <label className="text-sm text-yellow-200">Please enter correct date.</label>}
-        <Button className="my-3 bg-info" type="submit">Start</Button>
+        <Button className="my-3 bg-info text-dark" type="submit">Start</Button>
         </Col>
         </Row>
        </Form>

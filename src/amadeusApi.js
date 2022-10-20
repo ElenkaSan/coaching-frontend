@@ -1,11 +1,16 @@
 const Amadeus = require("amadeus");
 require("dotenv").config();
 // const { AMADEUS_CLIENT_ID, AMADEUS_CLIENT_SECRET } = require("dotenv").config();
+// Amadeus for Developers provides a set of APIs (Self-Service APIs built-in type support) for the travel industry.
+//  Flights, Hotels, Locations and more.
 
 const amadeus = new Amadeus({
-  clientId: process.env.API_KEY,
-  clientSecret: process.env.API_SECRET,
-
+  // clientId: process.env.API_KEY,
+  // clientSecret: process.env.API_SECRET,
+  clientId: "sDCxGNRT7aSXaYvbpuHzxG6kEJ4iJfnf",
+  clientSecret: "XFFQHMWuBroUtOmX",
+  // clientId: AMADEUS_CLIENT_ID,
+  // clientSecret: AMADEUS_CLIENT_SECRET,
 });
 
 class AmadeusApi {
