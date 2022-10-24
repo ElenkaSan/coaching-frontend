@@ -75,7 +75,6 @@ function App() {
    //We register users with this function to Api, which posts to the backend.
   //If successful, save USER with data, save new token, and return success message. 
   //IF unsucessful, return errors. 
-
   const signup = async (signupData) => {
     try {
       let token = await Api.signup(signupData);
@@ -90,7 +89,6 @@ function App() {
    //Login User gives the user the ability to login. Data is checked on APi to the backend.
   //If successful, save USER with data, save new token, and return success message. 
   //IF unsucessful, return errors. 
-
   const login = async (loginData) => {
     try {
       let token = await Api.login(loginData);
@@ -106,7 +104,6 @@ function App() {
 
 
   //Logout will reset the session token to null for the user and will remove their data from the app instance.
-
   const logout = () => {
     setIsLoggedIn(null);
     setToken(null);
@@ -133,21 +130,6 @@ function App() {
     setIsLoggedIn(newUser);
   };
 
-  async function Adding(data) {
-    try {
-      let item = await Api.addItemsCount(isLoggedIn.username, data);
-      setApplicationIds(new Set(isLoggedIn.applications));
-      updateUser(item);
-      // findTripByUser(isLoggedIn.username)
-      return { success: true };
-    } catch (err) {
-      console.error(err);
-      setIsLoggedIn(null);
-      return [false, err.message];
-    }
-  }
-
-
   if (!infoLoaded) return <LoadingSpinner />;
 
   return (
@@ -158,8 +140,7 @@ function App() {
           updateUser,
           setIsLoggedIn,
           updateCurrentUser,
-          applicationIds,
-          Adding
+          applicationIds
         }}
       >
         <div className="App">

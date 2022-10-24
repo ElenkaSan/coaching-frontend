@@ -57,7 +57,7 @@ function Navigation({ logout }) {
                           <NavLink to="/profile" type="Profile">  
                             <h3> <img src={profily} alt="profile"style={{ height:'30px', width:'30px'}} /> </h3>
                           </NavLink>
-                          <NavItem>
+                          <NavItem to="/">
                             <h3 className="btn nav mx-auto my-2" onClick={handleClick} type="logout">  {/* <FaSignOutAlt /> Bye!  */}
                               <img src={logouty} alt="logout" style={{ height:'30px', width:'30px'}} />
                             </h3>
@@ -88,7 +88,7 @@ function Navigation({ logout }) {
                                 </h3>
                             </NavLink><span></span>
                         </NavItem>
-                        <NavItem>
+                        <NavItem  to="/">
                             <h3 className="btn nav col-sm-3 col-sm-3 col-sm-6 col-sm-8 mx-auto my-2" onClick={handleClick} type="logout">
                                 {/* <FaSignOutAlt /> Bye!  */}
                             <img src={logouty} alt="logout" style={{ height:'30px', width:'30px'}} />

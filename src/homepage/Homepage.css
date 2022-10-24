@@ -1,15 +1,9 @@
 
 .Home {
-  /* color: #c5ff06; */
   color: #3125b3;
   text-decoration: none;
   border-bottom: 2px solid transparent;
   transition: all .5s ease-in-out;
-  
- 
-  /* display: flex; */
-  /* align-items: center; */
-
 }
 
 .todo-button {

@@ -5,10 +5,8 @@ require("dotenv").config();
 //  Flights, Hotels, Locations and more.
 
 const amadeus = new Amadeus({
-  // clientId: process.env.API_KEY,
-  // clientSecret: process.env.API_SECRET,
-  clientId: "sDCxGNRT7aSXaYvbpuHzxG6kEJ4iJfnf",
-  clientSecret: "XFFQHMWuBroUtOmX",
+  clientId: process.env.API_KEY,
+  clientSecret: process.env.API_SECRET,
   // clientId: AMADEUS_CLIENT_ID,
   // clientSecret: AMADEUS_CLIENT_SECRET,
 });

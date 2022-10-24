@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AmadeusApi from "../amadeusApi";
 import SearchFlights from "./SearchFlights";
 import FlightDetail from "./FlightDetail";
-import LoadingSpinner from "../common/LoadingSpinner";
+// import LoadingSpinner from "../common/LoadingSpinner";
 import Alert from 'react-bootstrap/Alert'
 import './flight.css'
 
@@ -13,105 +13,135 @@ import './flight.css'
 //If a user has saved, the hotel info card will show it has been saved to and will show the remove button.
 
 const AddFlight = () => {
-
     const [flights, setFlights] = useState([]);
     const [show, setShow] = useState(true);
-    const [hasErrors, setHasErrors] = useState(false);
+    // const [hasErrors, setHasErrors] = useState(false);
+    const [hasErrors, setHasErrors] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
       if ( localStorage.getItem("flights")){
         setFlights(JSON.parse(localStorage.getItem("flights")));
+        // setIsLoading(false)
     }
     },[]);
   
     useEffect(() => {
       localStorage.setItem("flights", JSON.stringify(flights));
+      // setIsLoading(false)
     }, [flights]);
+
+    let hours = 120; // 120 - 5 days 
+    // to clear the localStorage after 1 hour
+    let now = new Date().getTime();
+    let setupTime = localStorage.getItem('setupTime');
+    if (setupTime == null) {
+       localStorage.setItem('setupTime', now)
+      //  setIsLoading(false)
+    } else {
+    if(now-setupTime > hours*60*60*1000) {
+      localStorage.clear()
+      localStorage.setItem('setupTime', now);
+      }
+    }
 
     //upon intial render, get all around flights 
     const  flightSearchAround = async (formData) => {
         try {
+            setIsLoading(true)
             let flightTwoWay = await AmadeusApi.getFlightAround(formData.originLocationCode,
-                                                      formData.destinationLocationCode, 
-                                                      formData.departureDate,
-                                                      formData.returnDate,
-                                                      formData.adults
-            );
+                                                                formData.destinationLocationCode, 
+                                                                formData.departureDate,
+                                                                formData.returnDate,
+                                                                formData.adults);
             console.log("FLIGHTsAround",flightTwoWay);
-            if (flightTwoWay.message === "success") {
-              return flightTwoWay.json();
-            }
-            else {
-              setHasErrors(true);
-            }
+            // if (flightTwoWay.message === "success") {
+            //   return flightTwoWay.json();
+            // }
+            // else {
+            //   setHasErrors(false);
+            // }
             setFlights(flightTwoWay);
+            setIsLoading(false)
         }
         catch (e) {
             console.log(e.message);
             setShow(true);
-            setHasErrors(true);
+            // setHasErrors(true);
+            setHasErrors('Sorry, no results were found!');
+            setIsLoading(false)
         }
     }
 
      //upon intial render, get all one way flights 
     const flightSearchOneway = async (formData) => {
         try {
+            setIsLoading(true)
             let flightOneWay = await AmadeusApi.getFlightOneway(formData.originLocationCode,
                                                                 formData.destinationLocationCode, 
                                                                 formData.departureDate,
-                                                                formData.adults
-            );
+                                                                formData.adults);
             console.log("FLIGHTsONEway",flightOneWay);
-            if (flightOneWay.message === "success") {
-              return flightOneWay.json();
-            }
-            else {
-              setHasErrors(true);
-            }
+            // if (flightOneWay.message === "success") {
+            //   return flightOneWay.json();
+            // }
+            // else {
+            //   setHasErrors(false);
+            // }
             setFlights(flightOneWay);
+            setIsLoading(false)
             }
         catch (e) {
             console.log(e.message);
             setShow(true);
-            setHasErrors(true);
+            // setHasErrors(true);
+            setHasErrors('Sorry, no results were found!');
+            setIsLoading(false)
         }
     }
 
-
-    if (!flights) return <LoadingSpinner />;
-
     return (
         <div className="p-4">
-            <SearchFlights 
+          <SearchFlights 
             flightSearchOneway={flightSearchOneway}
             flightSearchAround={flightSearchAround}
-            />
+          />
+          {isLoading ? (
+            <div className="card col-md-6 offset-md-3 text-warning lead font-weight-bold J text-center p-2">
+              Loading ... Please wait
+              <div class="d-flex justify-content-center"> 
+                <div className="spinner-border" role="status">
+                  <span className="visually-hidden text-center" loading={isLoading}> Loading...</span>
+                </div>
+              </div>
+            </div>
+          ) : (
+          <>
             {flights.data ? ( 
-            <div className="text-light">
-               {flights.data.length === 0 ? ( <p className="card p-2 bg-danger lead font-weight-bold col-md-8 offset-md-2 text-center">
-                Sorry, there are {flights.data.length} flight results! </p>) : ''}
-                {flights.data.map(flight => (
-                <FlightDetail key={flight.id} flight={flight} />
-                ))}
-            </div> 
-            ) : ( 
-              <>
-              {hasErrors
-                       ?
-                       ( <>
-                         <Alert show={show} variant="dark" className="bg-danger lead font-weight-bold text-center col-md-8 offset-md-2 p-2"> 
-                           <div className="fade show">
-                           <p> 
-                           Sorry, no results were found!</p>
-                           </div>
-                         </Alert>
-                       </> )
-                       : null}
-                       </>
-              )}
+              <div className="text-light">
+                {flights.data.length === 0 ? ( 
+                  <p className="card p-2 bg-danger lead font-weight-bold col-md-8 offset-md-2 text-center">
+                   Sorry, there are {flights.data.length} flight results! </p>
+                ) :  ''}
+                 {flights.data.map(flight => (
+                  <FlightDetail key={flight.id} flight={flight} />
+                 ))} 
+              </div> 
+             ) : ( 
+               <>
+                {hasErrors && 
+                  <Alert show={show} variant="dark" className="bg-danger lead font-weight-bold text-center col-md-8 offset-md-2 p-2"> 
+                    <div className="fade show">
+                     <p> Sorry, no results were found!</p>
+                    </div>
+                  </Alert>}
+                </>
+              )};
            <br/>
-       </div>
-    )
+        </>  
+      )}
+    </div>
+  )
 }
 
 export default AddFlight;

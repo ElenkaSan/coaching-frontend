@@ -21,10 +21,9 @@ import CountDownTrip from "../tripPage/CountDownTrip"
 //The user can also choose to update their profile here.
 
 
-  const UserPage = (props, updateUser, Adding ) => {
+  const UserPage = ( updateUser, isLoading, Adding ) => {
     const { isLoggedIn } = useContext(UserContext);
     const [isUpdate, setIsUpdate] = useToggle(false);
-
 
     return (
       <section className="container">
@@ -33,16 +32,17 @@ import CountDownTrip from "../tripPage/CountDownTrip"
               <div className="row">
                 <div className="d-inline">
                   <h2 className="T display-6 font-weight-bold text-info"> {`${isLoggedIn.username}`} </h2>
-                  <div className="m-0">
+                  <div className="m-0 float-right">
                   <Link to="/update" type="ProfileForm"> 
                     <Button to="/update" type="ProfileForm" className="btn btn-lg btn-outline-warning"> 
                     {/* <FcEditImage /> */}
                     <BsPencilSquare /> 
                        {/* Update Profile  */}
                     </Button>
+                    <span className="input-group-btn me-2"></span>
                   </Link>
                   <Link to='/' type="Home">
-                    <Button className="btn btn-lg btn-warning float-right"> <BiHomeHeart />
+                    <Button className="btn btn-lg btn-warning"> <BiHomeHeart />
                     </Button>
                   </Link>
                   </div> 
@@ -50,19 +50,18 @@ import CountDownTrip from "../tripPage/CountDownTrip"
               </div>
               <hr/>
               <div className="Home row text-left">
-               <div className="col">  <h4 className="lead T text-warning font-weight-bold"> Full name: {`${isLoggedIn.firstName} ${isLoggedIn.lastName}`}</h4>
-                 <h4 className="lead T text-light font-weight-bold">EMAIL: {`${isLoggedIn.email}`}</h4>
-                 <br></br>
-                 {/* <CountDown /> */}
-                 <PackingList setIsUpdate={setIsUpdate}
-                 Adding={Adding} />
-                 </div>
-                  {isUpdate
+              {isUpdate
                 ? <ProfileForm 
                 updateUser={updateUser} 
                 setIsUpdate={setIsUpdate}
                 />
                 : (<>
+               <div className="col">  <h4 className="lead T text-warning font-weight-bold"> Full name: {`${isLoggedIn.firstName} ${isLoggedIn.lastName}`}</h4>
+                 <h4 className="lead T text-light font-weight-bold">EMAIL: {`${isLoggedIn.email}`}</h4>
+                 <br></br>
+                 {/* <CountDown /> */}
+                 <PackingList/>
+               </div>
                <div className="col">
                  <h4 className="text-right font-weight-bold">
                  {/* <CountDown /> */}
@@ -71,13 +70,13 @@ import CountDownTrip from "../tripPage/CountDownTrip"
                   </h4>
                  </div>
                  </>) }
-             </div>
+               </div>
             </CardBody>
           </Card>
         <br></br>
       <hr></hr>
       <br></br>
-      <WeatherPage />
+      <WeatherPage isLoading={isLoading} />
       <br></br>
         </section>
     )

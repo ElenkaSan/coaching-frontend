@@ -16,6 +16,8 @@ import { MdDeleteForever } from "react-icons/md";
 import { FiSave } from "react-icons/fi";
 import { BsArrow90DegUp }  from "react-icons/bs";
 
+
+
 //Profile Form for Update is the component where the user can update their profile information.
 //If data does not meet the conditions of the backend, they will be informed of the errors. 
 //Data is populated based on the profile to ensure with the exception of the password field.
@@ -80,18 +82,21 @@ const history = useHistory();
     evt.preventDefault();
     let username = formData.username;
     try {
-      Api.deleteUser(username);
-      if (isLoggedIn.username == null) {
+      if(window.confirm(`Are you sure you wish to delete your Profile: ${formData.username}?`)) {
+        Api.deleteUser(username);
+
+        setSaveConfirmed(true);
+        setIsLoggedIn(false);
         history.push("/");
+        localStorage.clear();
       }
     } catch (err) {
         setHasErrors(err);
         return;
       }
     setHasErrors([]);
-    setSaveConfirmed(true);
-    setIsLoggedIn(false);
   }
+          
 
   return (
     <section className="col-md-6 col-lg-4 offset-md-3 offset-lg-4">
@@ -160,10 +165,10 @@ const history = useHistory();
                   <Button  
                   className="btn btn-info float-lefts"
                   onClick={handleSubmit}>
-                    <FiSave /> Changes
+                    <FiSave /> Change
                   </Button>
                   <span className="input-group-btn me-2"></span>
-                  <Button  
+                  <Button  type="delete"
                   className="btn btn-danger"
                   onClick={handleDelete} >
                     <MdDeleteForever /> Profile

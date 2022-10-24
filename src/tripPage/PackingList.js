@@ -17,6 +17,19 @@ const PackingList = () => {
     localStorage.setItem("items", JSON.stringify(items));
   }, [items]);
 
+  let hours = 120; // 120 - 5 days 
+  // to clear the localStorage after 5 days
+  let now = new Date().getTime();
+  let setupTime = localStorage.getItem('setupTime');
+  if (setupTime == null) {
+     localStorage.setItem('setupTime', now)
+  } else {
+  if(now-setupTime > hours*60*60*1000) {
+    localStorage.clear()
+    localStorage.setItem('setupTime', now);
+    }
+  }
+
   
   const addTodo = todo => {
    if(!todo.text || /^\s*$/.test(todo.text)) {

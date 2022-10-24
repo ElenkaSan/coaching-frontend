@@ -75,16 +75,6 @@ class Api {
       return res.data;
   }
 
-  static async addItemsCount(username, data) {
-    let res = await this.backendRequest(`users/${username}/add-items-countdown`, data, "post");
-    return res.user;
-  }
-
-  static async getInfoTrip(username, data) {
-    let res = await this.backendRequest(`users/${username}/getTrip`, data);
-    return res.user;
-  }
-
 }
 
 export default Api;

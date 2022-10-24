@@ -11,16 +11,32 @@ const CountDownTrip = () => {
     name: "",
     date: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if ( localStorage.getItem("save")){
       setSave(JSON.parse(localStorage.getItem("save")));
+      setIsLoading(false)
   }
   },[]);
 
   useEffect(() => {
     localStorage.setItem("save", JSON.stringify(save));
+    setIsLoading(false)
   }, [save]);
+
+  let hours = 120; // 120 - 5 days 
+  // to clear the localStorage after 5 days
+  let now = new Date().getTime();
+  let setupTime = localStorage.getItem('setupTime');
+  if (setupTime == null) {
+     localStorage.setItem('setupTime', now)
+  } else {
+  if(now-setupTime > hours*60*60*1000) {
+    localStorage.clear()
+    localStorage.setItem('setupTime', now);
+    }
+  }
 
   const onInputChange = (e) => {
     setEvent({ ...event, [e.target.name]: e.target.value });
@@ -61,10 +77,10 @@ const CountDownTrip = () => {
           />
          {save.map((items,i) => (
          <div key={i}>
-         <EventCountdown data={items} id={i} onDelete={deleteEvent}/>
+         <EventCountdown data={items} id={i} onDelete={deleteEvent} disable={isLoading}/>
          </div>
          ))
-         }
+         } 
       </CardBody>
         </Card>
     </div>

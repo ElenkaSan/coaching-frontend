@@ -21,9 +21,9 @@ const WeatherSearchBar = props => {
         />
         <br></br>
         <Button className='btn btn-info btn-lg float-right' onClick={props.handleFormSubmit}> <IoCloudyNightSharp/></Button>
-        <Button className="btn btn-outline-warning btn-lg float-left" to='/' type="Go Back">
+        <Link className="btn btn-outline-warning btn-lg float-left" to='/' type="Go Back">
              <BsArrow90DegUp />
-          </Button>
+          </Link>
       </FormGroup>
     </Form>
     </Card>

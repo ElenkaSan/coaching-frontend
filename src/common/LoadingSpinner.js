@@ -1,6 +1,7 @@
 import React from "react";
 
 function LoadingSpinner() {
+  
   return (
       <div className="card text-warning lead font-weight-bold text-center bg-secondary">
         Loading ... Please wait

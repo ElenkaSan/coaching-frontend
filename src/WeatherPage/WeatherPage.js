@@ -24,6 +24,20 @@ const WeatherPage = (props) => {
     localStorage.setItem("data", JSON.stringify(data));
   }, [data]);
 
+
+  let hours = 1; // 120 - 5 days 
+  // to clear the localStorage after 1 hour
+  let now = new Date().getTime();
+  let setupTime = localStorage.getItem('setupTime');
+  if (setupTime == null) {
+     localStorage.setItem('setupTime', now)
+  } else {
+  if(now-setupTime > hours*60*60*1000) {
+    localStorage.clear()
+    localStorage.setItem('setupTime', now);
+    }
+  }
+
   const { days, location, searchTerm } = data;
 
   // useEffect replaces componentDidMount. Denver will show until the user types a search.

@@ -62,7 +62,7 @@ return (
                 <div className="card bg-light">
                   <img src={mount} className="card-img-top img-thumbnail" alt="Girl flight" />
                     <div className="card-body text-left">
-                    <h5>Here you can check the Weather Forecast: &nbsp;
+                    <h5>Here you can also check the Weather Forecast: &nbsp;
                 <Link className="" to="/weather" type="weather"> 
                 <img src={weathers} alt="weather" style={{ height:'50px', width:'50px'}} />
                 {/* <h4> <TiWeatherPartlySunny /> </h4>   */}

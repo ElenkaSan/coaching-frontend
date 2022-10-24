@@ -18,6 +18,19 @@ const CountDown = props => {
     localStorage.setItem("date", JSON.stringify(date));
   }, [date]);
 
+  let hours = 120; // 120 - 5 days 
+  // to clear the localStorage after 5 days
+  let now = new Date().getTime();
+  let setupTime = localStorage.getItem('setupTime');
+  if (setupTime == null) {
+     localStorage.setItem('setupTime', now)
+  } else {
+  if(now-setupTime > hours*60*60*1000) {
+    localStorage.clear()
+    localStorage.setItem('setupTime', now);
+    }
+  }
+
   const dateCountDown = date;
 
   const handleInputChange = event => {
@@ -26,11 +39,6 @@ const CountDown = props => {
   };
 
   useEffect(() => {
-    // if(props.tripId){
-    //   Axios.get(`/getdate/${props.tripId}`).then(res => {
-    //     setDate(res.data.date);
-    //   });
-    // }
     
     // Update the count down every 1 second
     const x = setInterval(

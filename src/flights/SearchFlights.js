@@ -24,8 +24,7 @@ import { IoAirplane } from 'react-icons/io5';
 //If flights are found with those filters, those will be shown here. 
 //If not found will show that Alert component used in AddFlight component "Sorry, no results were found!"
 
-// const SearchFlights = (props) => {
-    const SearchFlights = ({ flightSearchAround,
+const SearchFlights = ({ flightSearchAround,
                              flightSearchOneway }) => {
         const INITIAL_STATE = {
           originLocationCode: '',
@@ -226,7 +225,7 @@ import { IoAirplane } from 'react-icons/io5';
                         name="type"
                         checked={checked.returnDate}
                         onChange={handleChangeCheck}
-                        value="Round-Trip"
+                        // value="Round-Trip"
                       /> 
                        Round-Trip
                     </Label>
