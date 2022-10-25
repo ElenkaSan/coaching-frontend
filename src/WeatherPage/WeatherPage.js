@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Row, Col } from 'reactstrap';
+import UserContext from "../auth/UserContext";
 import moment from 'moment';
 import WeatherSearch from './WeatherSearch';
 import WeatherCard from './WeatherCard';
@@ -12,31 +13,38 @@ const WeatherPage = (props) => {
     location: '',
     searchTerm: ''
   });
+  const { isLoggedIn } = useContext(UserContext);
   
 
   useEffect(() => {
-    if ( localStorage.getItem("data")){
+    if (localStorage.getItem("data")){
       setData(JSON.parse(localStorage.getItem("data")));
   }
   },[]);
 
   useEffect(() => {
-    localStorage.setItem("data", JSON.stringify(data));
-  }, [data]);
-
-
-  let hours = 1; // 120 - 5 days 
-  // to clear the localStorage after 1 hour
-  let now = new Date().getTime();
-  let setupTime = localStorage.getItem('setupTime');
-  if (setupTime == null) {
-     localStorage.setItem('setupTime', now)
-  } else {
-  if(now-setupTime > hours*60*60*1000) {
-    localStorage.clear()
-    localStorage.setItem('setupTime', now);
+    if (isLoggedIn) {
+      localStorage.setItem("data", JSON.stringify(data));
+    } 
+    else if (!isLoggedIn) {
+      // setIsLoggedIn(false)
+      localStorage.removeItem("data");
     }
-  }
+  }, [data, isLoggedIn]);
+
+
+  // let hours = 1; // 120 - 5 days 
+  // // to clear the localStorage after 1 hour
+  // let now = new Date().getTime();
+  // let setupTime = localStorage.getItem('setupTime');
+  // if (setupTime == null) {
+  //    localStorage.setItem('setupTime', now)
+  // } else {
+  // if(now-setupTime > hours*60*60*1000) {
+  //   localStorage.clear()
+  //   localStorage.setItem('setupTime', now);
+  //   }
+  // }
 
   const { days, location, searchTerm } = data;
 

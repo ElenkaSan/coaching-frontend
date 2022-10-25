@@ -17,6 +17,9 @@ import TextField from "@mui/material/TextField"
 import Autocomplete from "@mui/material/Autocomplete"
 import { IoAirplane } from 'react-icons/io5';
 
+import { RadioGroup, Radio} from '@mui/material';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 //SearchFlights component provides a form that a user can filter flights on. 
 // In filter user can choose on way or around flight and will show direct flights or will have the stops. 
@@ -35,12 +38,19 @@ const SearchFlights = ({ flightSearchAround, flightSearchOneway }) => {
 
     const [formData, setFormData] = useState(INITIAL_STATE);
     const [checked, setChecked] = React.useState(false);
-    
+    const [bookingType, setBookingType] = React.useState('round');
+    const selectType = React.useMemo(() => bookingType === 'oneway' ? 'date' : 'range', [bookingType]);
+    const bookingTypeChange = (ev) => {
+      setBookingType(ev.target.value);
+      setChecked(!checked);
+    };
+                            
+
     const history = useHistory();
 
-    const handleChangeCheck = () => {
-       setChecked(!checked);
-    };
+    // const handleChangeCheck = () => {
+    //    setChecked(!checked);
+    // };
 
     const hidden = checked ? '' : 'hidden'; 
     
@@ -51,6 +61,8 @@ const SearchFlights = ({ flightSearchAround, flightSearchOneway }) => {
             ...formData,
             [name]: value
         }))
+        setBookingType(e.target.value);
+        // setChecked(!checked);
     };
 
     //This handles the submission by the user and will either be successful or not. 
@@ -62,7 +74,7 @@ const SearchFlights = ({ flightSearchAround, flightSearchOneway }) => {
         history.push("/flights");
     }
 
-    const flightType = formData.returnDate ? "ROUND-TRIP" : formData.departureDate ? "ONE-WAY" : "";
+    // const flightType = formData.returnDate ? "ROUND-TRIP" : formData.departureDate ? "ONE-WAY" : "";
 
     return (
         <section className="Home text-right"
@@ -187,28 +199,47 @@ const SearchFlights = ({ flightSearchAround, flightSearchOneway }) => {
                       />
                       </Label>
                       <span className="input-group-btn me-5"></span>
+                     
                     <Label htmlFor="departureDate"> 
                     <h5 className='T text-warning'>Depature Date </h5>   
                     <Input className="T form-control mb-3 date-num text-light"
                        id="departureDate"
                        type="date"
                        name="departureDate"
+                      //  value="oneway"
                        value={formData.departureDate}
                        onChange={handleChange}
                        required
+                      //  select={selectType}
+                       checked={bookingType === 'oneway'}
+                       label="One way"
                     />    
                     </Label>
+                    {/* <FormGroup check>
+                    <Label className="card bg-warning m-4 text-dark float-left" check> 
+                    <Input className='date-num'
+                         value="oneway" checked={bookingType === 'oneway'} onChange={bookingTypeChange} label="One way"
+                        id="type"
+                        type="checkbox"
+                        name="type"
+                      /> 
+                      One-Way
+                    </Label>
+                    </FormGroup> */}
                     <span className="input-group-btn me-5"></span>
                     <div className={ hidden }>
                     <Label htmlFor="returnDate">    
                     <h5 className='T text-warning'>Return Date </h5>
                     <Input className="T form-control mb-3 date-num text-light"
-                       label={flightType}
+                      //  label={flightType}
+                       label="Round trip"
                        id="returnDate"
                        type="date"
                        name="returnDate"
                        value={formData.returnDate}
                        onChange={handleChange}
+                       select={selectType}
+                       checked={bookingType === 'round'}
                     /> 
                     </Label>
                     </div>
@@ -217,12 +248,13 @@ const SearchFlights = ({ flightSearchAround, flightSearchOneway }) => {
                     <Label className="card bg-warning m-4 text-dark float-left" check> 
                     {/* <h5 className='T text-warning text-lowercase'>Round-Trip </h5> */}
                     <Input className='date-num'
-                        label={flightType}
+                        value="round" checked={bookingType === 'round'} onChange={bookingTypeChange} label="Round trip"
+                        // label={flightType}
                         id="type"
                         type="checkbox"
                         name="type"
-                        checked={checked.returnDate}
-                        onChange={handleChangeCheck}
+                        // checked={checked.returnDate}
+                        // onChange={handleChangeCheck}
                         // value="Round-Trip"
                       /> 
                        Round-Trip

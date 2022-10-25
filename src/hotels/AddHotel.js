@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import UserContext from "../auth/UserContext";
 import AmadeusApi from "../amadeusApi";
 import HotelDetail from "./HotelDetail";
 import SearchHotels from "./SearchHotels";
@@ -14,6 +15,7 @@ import "toasted-notes/src/styles.css";
 //If a user has saved, the hotel info card will show it has been saved to and will show the remove button.
 
 const AddHotel = () => {
+    const { isLoggedIn } = useContext(UserContext);
     const [hotels, setHotels] = useState([]);
     const [show, setShow] = useState(true);
     // const [hasErrors, setHasErrors] = useState(false);
@@ -21,30 +23,35 @@ const AddHotel = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-      if ( localStorage.getItem("hotels")){
+      if (localStorage.getItem("hotels")){
         setHotels(JSON.parse(localStorage.getItem("hotels")));
-        // setIsLoading(false)
-    }
+      }
     },[]);
   
     useEffect(() => {
-      localStorage.setItem("hotels", JSON.stringify(hotels));
-      // setIsLoading(false)
-    }, [hotels]);
+      if (isLoggedIn) {
+        localStorage.setItem("hotels", JSON.stringify(hotels));
+        // setIsLoggedIn(true)
+        } 
+        else if (!isLoggedIn) {
+          // setIsLoggedIn(false)
+          localStorage.removeItem("hotels");
+        }
+    }, [hotels, isLoggedIn]);
 
-    let hours = 120; // 120 - 5 days 
-    // to clear the localStorage after 1 hour
-    let now = new Date().getTime();
-    let setupTime = localStorage.getItem('setupTime');
-    if (setupTime == null) {
-       localStorage.setItem('setupTime', now)
-      //  setIsLoading(false)
-    } else {
-    if(now-setupTime > hours*60*60*1000) {
-      localStorage.clear()
-      localStorage.setItem('setupTime', now);
-      }
-    }
+    // let hours = 120; // 120 - 5 days 
+    // // to clear the localStorage after 120 hour
+    // let now = new Date().getTime();
+    // let setupTime = localStorage.getItem('setupTime');
+    // if (setupTime == null) {
+    //    localStorage.setItem('setupTime', now)
+    //   //  setIsLoading(false)
+    // } else {
+    // if(now-setupTime > hours*60*60*1000) {
+    //   localStorage.clear()
+    //   localStorage.setItem('setupTime', now);
+    //   }
+    // }
 
     //upon initial load, show all hotels for the choosen dates.
     const findHotels = async (formData) => {

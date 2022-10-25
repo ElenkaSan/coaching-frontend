@@ -21,7 +21,7 @@ import CountDownTrip from "../tripPage/CountDownTrip"
 //The user can also choose to update their profile here.
 
 
-  const UserPage = ( updateUser, isLoading, Adding ) => {
+  const UserPage = ( updateUser ) => {
     const { isLoggedIn } = useContext(UserContext);
     const [isUpdate, setIsUpdate] = useToggle(false);
 
@@ -60,7 +60,7 @@ import CountDownTrip from "../tripPage/CountDownTrip"
                  <h4 className="lead T text-light font-weight-bold">EMAIL: {`${isLoggedIn.email}`}</h4>
                  <br></br>
                  {/* <CountDown /> */}
-                 <PackingList/>
+                 <PackingList />
                </div>
                <div className="col">
                  <h4 className="text-right font-weight-bold">
@@ -76,7 +76,7 @@ import CountDownTrip from "../tripPage/CountDownTrip"
         <br></br>
       <hr></hr>
       <br></br>
-      <WeatherPage isLoading={isLoading} />
+      <WeatherPage />
       <br></br>
         </section>
     )

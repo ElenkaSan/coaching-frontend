@@ -33,6 +33,7 @@ function Navigation({ logout }) {
   const handleClick = () => {
       logout();
       history.push("/");
+    //   localStorage.clear();
   }
 
   return (
