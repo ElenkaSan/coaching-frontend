@@ -10,14 +10,9 @@ body {
   padding: 0;
   height: 100vh;
   overflow: scroll;
-  /* background: url(https://www.insperity.com/wp-content/uploads/Remote_work_1200x630.png); */
-  /* background: url(https://www.rd.com/wp-content/uploads/2020/07/GettyImages-1158679440.jpg); */
-  /* (https://a.cdn-hotels.com/gdcs/production146/d437/0ce6a2d0-80ae-4e40-acdc-87621c299c1b.jpg); */
-  /* background: url(https://static.toiimg.com/photo/msid-81535478,width-96,height-65.cms) no-repeat; */
-  /* background-size: flex; */
-  /* background-repeat: cover; */
 
-  background: url(https://www.rd.com/wp-content/uploads/2020/07/GettyImages-1158679440.jpg) no-repeat center center fixed;
+  /* background: url(https://www.rd.com/wp-content/uploads/2020/07/GettyImages-1158679440.jpg) no-repeat center center fixed; */
+  background: url("./img/format.jpeg") no-repeat center center fixed;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;

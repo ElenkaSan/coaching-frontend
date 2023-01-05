@@ -6,8 +6,8 @@ dotenv.config();
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001"; 
 
 //Build Front Surge
-// const BASE_URL = process.env.REACT_APP_BASE_URL || "https://vacation-back.herokuapp.com/";
-// $ REACT_APP_BASE_URL=https://vacation-back.herokuapp.com npm run build
+// const BASE_URL = process.env.REACT_APP_BASE_URL || "https://coach-back.herokuapp.com/";
+// $ REACT_APP_BASE_URL=https://coach-back.herokuapp.com npm run build
 // $ cp build/index.html build/200.html
 // $ surge build
 

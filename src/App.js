@@ -2,18 +2,19 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import useLocalStorage from "./hooks/useLocalStorage";
 import Navigation from "./routes-nav/Navigation";
+import Header from "./routes-nav/Header";
 import Routes from "./routes-nav/Routes";
+// import Routes from "./routes-nav/Routes2";
 
 import LoadingSpinner from "./common/LoadingSpinner";
 import Api from "./api";
 import UserContext from "./auth/UserContext";
 import jwt from "jsonwebtoken";
-import AmadeusApi from "./amadeusApi";
 require("dotenv").config();
 
 
 // Key name for storing token in localStorage for "remember me" re-login
-export const TOKEN_STORAGE_ID = "vacation-token";
+export const TOKEN_STORAGE_ID = "coach-token";
 
 // App script provides the initial rendering of children components. 
 // Uopon initial rendering, we check to see if the user has a token in the browser session.
@@ -48,8 +49,6 @@ function App() {
   useEffect(
     function loadUserInfo() {
       console.debug("App useEffect loadUserInfo", "token=", token);
-      AmadeusApi.clientId = process.env.AMADEUS_CLIENT_ID;
-      AmadeusApi.clientSecret = process.env.AMADEUS_CLIENT_SECRET;
 
       async function getUserProfile() {
         if (token) {
@@ -107,6 +106,7 @@ function App() {
   const logout = () => {
     setIsLoggedIn(null);
     setToken(null);
+    // localStorage.clear();
   };
 
  //Users can update their profile with this function, which posts to the back end on Api call.
@@ -145,6 +145,7 @@ function App() {
       >
         <div className="App">
           <Navigation logout={logout} />
+          {/* <Header logout={logout} /> */}
           <Routes login={login} signup={signup} 
           />
         </div>

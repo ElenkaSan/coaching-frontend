@@ -1,143 +1,86 @@
-# Vacation-Back
-# Capstone Project 2 - Vacation Time
-### *Try the app [Vacation Time](https://elated-smile.surge.sh/)*
-Ready for travel, let’s make the trip of your dreams. This website `Vacation Time` allows you to find the nice hotel, flight for you with the best price. When your make next travel destination then can do a record personalized notes for vacation planning after create an account.
-You can conveniently save your results along with any notes you've made in your personalized list. Start count down your trip date and check the Weather forecast.
-This website allows users to create an account and save the result after that with create a list of their Packing List and CountDown trip/flight/deadlines/evens and etc. 
+## [Front-end]
 
-## App Information
-## Back-end
+cd into the "frontend" directory, install required packages, then start the app.
 
-cd into the "backend" directory, install required packages, create and seed database, and start the server. (Make sure that you have postgreSQL installed)
-  ```sh
-  cd backend  
-  npm install  
-  createdb vacation
-  psql < vacation.sql  
-  nodemon server.js or node server.js
-  ```  
-  This will start the server on port 3001
-  
-### Data
-For this CP database that takes trip-related information from the [Amadeus API](https://amadeus.com/)
-
-```sh
-DB schema: 
-  ├── trips table (favorite flights/hotels) 
-  │   └── users table
-  │                 
-  ├── flightReservations table
-  └── hotelReservations table
- ```
-
-<img width="1142" alt="Screen Shot 2022-10-14 at 1 53 17 PM" src="https://user-images.githubusercontent.com/75818489/195910555-2d728b7e-5cd0-413f-bd87-2efe67cc0b8a.png">
-
-
-## [Front-end](https://github.com/ElenkaSan/Capstone_Project_2_Frontend.git)
-
-cd into the "frontend" directory, install required packages, then start the app 
   ```sh
   cd frontend    
   npm install    
   npm start
   ```
+
   This will run your app on http://localhost:3000
-  
-### Routes
-|Path                 | Component         |  
-|---------------------|-------------------|
-| /                   | Homepage          |  
-| /signup             | SignupForm        |   
-| /login              | LoginForm         |  
-| /hotels   	        | AddHotel          |
-| /hotels             | HotelDetail       |
-| /flights            | AddFlight         |
-| /flights            | FlightDetail      |
-| /profile            | UserPage          |
-| /update             | ProfileForm       |
-| /weather            | WeatherPage       |
 
-## Component Architecture
-```sh
-App
-api
-amadeusApi
-APIw
-airportData
-src
-│ 
-├── Routes-nav
-│   ├── Navigation
-│   └── Routes
-│ 
-├── Hotels
-│   ├── SearchHotels
-│   ├── AddHotel
-│   └── HotelDetail 
-│   
-├── Flights
-│   ├── SearchFlights
-│   ├── AddFlight
-│   └── FlightDetail 
-│ 
-├── Homepage ── NoLoggedIn
-│ 
-├─┬ Auth
-│ │ ├── LoginForm
-│ │ ├── SignupForm
-│ │ └── ProfileForm ── UserPage
-│ └── UserContext
-│
-├── TripPage
-│   ├── AddItemForm
-│   ├── CountDownTrip
-|   ├── EventCountdown
-|   ├── Forma
-|   ├── Timers
-│   ├── Item 
-|   └── PackingList
-│ 
-├── Common
-│   ├── LoadingSpinner 
-│   └── Alert
-│
-├── WeatherPage
-│   ├── WeatherPage 
-│   ├── WeatherDayCard
-│   └── WeatherSearchBar
-│ 
-└── Hooks
-    ├── useLocalStorage
-    ├── useTimedMessage
-    └── useToggle
-```
+<img width="1304" alt="navbar" src="https://user-images.githubusercontent.com/75818489/198122186-704db66a-433a-4740-b13f-a2398f1f82f7.png">
 
-### Functionality
-The app's functionality includes:
-  - User can search flights / hotels for every place on Earth
-  - User can see CountDown thier trip (e.g. Flight time or other Events, Deadlines) and add Packing List after signup
-  - Search the Weather forecast in User page
-  - User can record ideas and ruminations about the venue in your own personal note
 
-### Technology Stack
-- Front-End: HTML5 | CSS3 | JavaScript | React | React Bootstrap | Redux | RTL | JSON Schema | JSON Web Token
-- Back-End: Node.js | Express.js | SuperTest | JWT Authentication | Bcrypt | PostgreSQL | Axios | RESTful API Endpoints | MongoDB 
+# Getting Started with Create React App
 
-### Hosting
-Heroku
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Future-Features
-  - The travel time feature:
-    - Save favorite flight / hotel results into thier User Account and Trip Page after signup
-    - Automatically calculate the flights and hotel date to count down in account, analyze hotel and flight costs and create trip list
-    - Book flight and hotel
-    - Car search, save and book
-    - When you search for any destination in the world, you will get recommendations for nice venues and places to visit in the area and detailed information about those places including pictures and maps.
-    - Create app on the phone
+## Available Scripts
 
-*Stretch goals:*
-  - Share favorite trip lists with other users on the site. Good for family members, that they can add this list to their account.
+In the project directory, you can run:
 
-Feel free to improve or contribute. Pull requests are always welcome!
+### `npm start`
 
-Author [Elena Nurullina](https://github.com/ElenkaSan/)
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# coaching-frontend

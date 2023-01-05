@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardBody, Button } from 'reactstrap';
-import UserContext from "../auth/UserContext";
+import UserContext from "./UserContext";
 import {
   //  FcEditImage
   // BsArrow90DegUp,
@@ -12,8 +12,8 @@ import WeatherPage from "../WeatherPage/WeatherPage";
 // import CountDown from "../tripPage/CountDown";
 import useToggle from "../hooks/useToggle";
 import ProfileForm from "./ProfileForm";
-import PackingList from "../tripPage/PackingList"
-import CountDownTrip from "../tripPage/CountDownTrip"
+// import PackingList from "../tripPage/PackingList"
+// import CountDownTrip from "../tripPage/CountDownTrip"
 
 //Profile UserPage shows the user's information that is saved in the backend.
 //It also shows the flights / hotels that they have saved to if any. 
@@ -59,16 +59,7 @@ import CountDownTrip from "../tripPage/CountDownTrip"
                <div className="col">  <h4 className="lead T text-warning font-weight-bold"> Full name: {`${isLoggedIn.firstName} ${isLoggedIn.lastName}`}</h4>
                  <h4 className="lead T text-light font-weight-bold">EMAIL: {`${isLoggedIn.email}`}</h4>
                  <br></br>
-                 {/* <CountDown /> */}
-                 <PackingList />
                </div>
-               <div className="col">
-                 <h4 className="text-right font-weight-bold">
-                 {/* <CountDown /> */}
-                 <br/>
-                 <CountDownTrip />
-                  </h4>
-                 </div>
                  </>) }
                </div>
             </CardBody>

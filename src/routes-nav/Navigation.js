@@ -3,21 +3,16 @@ import { Navbar, Nav, NavItem } from "reactstrap";
 import { NavLink, useHistory } from "react-router-dom";
 import UserContext from "../auth/UserContext";
 import "./Navigation.css";
+import "./component.css";
 import {TbHaze} from "react-icons/tb"
-// import {FaSignOutAlt} from "react-icons/fa"
 
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from 'react-bootstrap/Dropdown'
-// import profily1 from '../img/findTrip.png';
-import flighty from '../img/flight.png';
-import hotl from '../img/hotel.png';
-import profily from '../img/user.png';
-import findTrip from '../img/mytrip.png';
-import DEFAULT  from '../img/trip.png';
-import sign from '../img/signup.png';
-import logouty from '../img/logout.png';
-import log from '../img/login.png';
 
+import profily from '../img/user.png';
+import logouty from '../img/logout.png';
+
+import logo from '../img/logo.png';
 
 // Navbar provides the navigation in the Navbar of the app.
 // It will show navlinks based on whether a user is logged in or not.
@@ -40,7 +35,7 @@ function Navigation({ logout }) {
     <div>
         <Navbar expand="md">
             <NavLink exact to="/" className="nav p-2">
-                <h3> Travel <img src={DEFAULT} alt="trip" style={{ height:'30px', width:'30px'}}/> </h3>
+            <h3>LOGO <img src={logo} alt="logo" style={{ height:'30px', width:'30px'}} /> </h3>
             </NavLink>
             <Nav className="ml-auto" navbar>
                 {isLoggedIn
@@ -49,37 +44,58 @@ function Navigation({ logout }) {
                     data-toggle="collapse" title={ <h4><TbHaze/></h4> } data-target="#navbarSupportedContent" 
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" > 
                         <Dropdown.Item>
-                          <NavLink to="/flights" type="Flights">   
-                            <h3> <img src={flighty} alt="flight" style={{ height:'30px', width:'30px'}} /> </h3>
-                          </NavLink>
-                          <NavLink to="/hotels" type="Hotels"> 
-                            <h3> <img src={hotl} alt="hotel" style={{ height:'30px', width:'30px'}} /> </h3>
-                          </NavLink>
-                          <NavLink to="/profile" type="Profile">  
-                            <h3> <img src={profily} alt="profile"style={{ height:'30px', width:'30px'}} /> </h3>
+                        <NavLink to="/aboutus" className="nav" type="AboutUs"> 
+                                <p> About Us </p>
+                                </NavLink>
+                        <NavLink to="/programs" className="nav" type="Programs"> 
+                             <p> Programs for Kids & Adults </p>
+                            </NavLink>
+                            <NavLink to="/business" className="nav" type="Business"> 
+                             <p> Business </p>
+                            </NavLink>
+                           <NavLink to="/publications" className="nav" type="Publications"> 
+                             <p> Publications </p>
+                            </NavLink>
+                           <NavLink to="/contact" className="nav" type="Contact"> 
+                             <p> Contact </p>
+                            </NavLink>
+                          <NavLink to="/profile" type="Profile"> 
+                          <p>Profile</p> 
                           </NavLink>
                           <NavItem to="/">
-                            <h3 className="btn nav mx-auto my-2" onClick={handleClick} type="logout">  {/* <FaSignOutAlt /> Bye!  */}
-                              <img src={logouty} alt="logout" style={{ height:'30px', width:'30px'}} />
-                            </h3>
+                            <p>Logout</p>
                           </NavItem>
                         </Dropdown.Item>
                     </DropdownButton>
                     <div  className="collapse navbar-collapse" id="navbarSupportedContent">
                         <NavItem>
-                            <NavLink to="/flights"
-                            className="nav col-sm-3 col-sm-3 col-sm-6 col-sm-8 mx-auto my-2" type="Flights"> 
-                                <h3>
-                                <img src={flighty} alt="flight" style={{ height:'30px', width:'30px'}} />
-                                </h3>
+                            <NavLink to="/aboutus"
+                            className="nav col-sm-3 col-sm-3 col-sm-6 col-sm-8 mx-auto my-2" type="AboutUs"> 
+                                <h3> About Us </h3>
                                 </NavLink>
                             </NavItem>
                         <NavItem>
-                           <NavLink to="/hotels"
-                            className="nav col-sm-3 col-sm-3 col-sm-6 col-sm-8 mx-auto my-2" type="Hotels"> 
-                                <h3>
-                                <img src={hotl} alt="hotel" style={{ height:'30px', width:'30px'}} />
-                                </h3>
+                           <NavLink to="/programs"
+                            className="nav col-sm-3 col-sm-3 col-sm-6 col-sm-8 mx-auto my-2" type="Programs"> 
+                             <h3> Programs for Kids & Adults </h3>
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                           <NavLink to="/business"
+                            className="nav col-sm-3 col-sm-3 col-sm-6 col-sm-8 mx-auto my-2" type="Business"> 
+                             <h3> Business </h3>
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                           <NavLink to="/publications"
+                            className="nav col-sm-3 col-sm-3 col-sm-6 col-sm-8 mx-auto my-2" type="Publications"> 
+                             <h3> Publications </h3>
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                           <NavLink to="/contact"
+                            className="nav col-sm-3 col-sm-3 col-sm-6 col-sm-8 mx-auto my-2" type="Contact"> 
+                             <h3> Contact </h3>
                             </NavLink>
                         </NavItem>
                         <NavItem>
@@ -101,55 +117,71 @@ function Navigation({ logout }) {
                     data-toggle="collapse" title={ <h4><TbHaze/></h4> } data-target="#navbarSupportedContent" 
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" > 
                         <Dropdown.Item>
-                          <NavLink to="/flights" type="Flights">
-                            <h3> <img src={flighty} alt="flight" style={{ height:'30px', width:'30px'}} /> </h3>
-                           </NavLink>
-                          <NavLink to="/hotels" type="Hotels">  
-                            <h3> <img src={hotl} alt="hotel" style={{ height:'30px', width:'30px'}} /> </h3>
-                          </NavLink>
+                        <NavLink to="/aboutus" className="nav" type="AboutUs"> 
+                                <p> About Us </p>
+                                </NavLink>
+                        <NavLink to="/programs" className="nav" type="Programs"> 
+                             <p> Programs for Kids & Adults </p>
+                            </NavLink>
+                            <NavLink to="/business" className="nav" type="Business"> 
+                             <p> Business </p>
+                            </NavLink>
+                           <NavLink to="/publications" className="nav" type="Publications"> 
+                             <p> Publications </p>
+                            </NavLink>
+                           <NavLink to="/contact" className="nav" type="Contact"> 
+                             <p> Contact </p>
+                            </NavLink>
                           <NavLink to="/weather" type="weather">  
-                                <h3> 
-                                <img src={findTrip} alt="car rent" style={{ height:'30px', width:'30px'}} />
-                                </h3>
+                             <p> Weather</p>
                             </NavLink>
                           <NavLink to="/login" type="login"> 
-                            <h3> <img src={log}alt="login" style={{ height:'30px', width:'30px'}} />  {/* <FaSignInAlt /> */}
-                            </h3>
+                          <p> Login </p>
                           </NavLink>
                           <NavLink to="/signup" type="signup"> 
-                            <h3> <img src={sign} alt="signup" style={{ height:'30px', width:'30px'}} />  {/* <MdSwitchAccount />  */}
-                            </h3> 
+                          <p> Signup </p>
                           </NavLink>
                         </Dropdown.Item>
                     </DropdownButton>
                     <div  className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <NavItem>
+                            <NavLink to="/aboutus" type="AboutUs"> 
+                                <p> About Us </p>
+                                </NavLink>
+                            </NavItem>
                         <NavItem>
-                            <NavLink to="/flights" type="Flights">   
-                                <h3> <img src={flighty} alt="flight" style={{ height:'30px', width:'30px'}} />  </h3>
+                           <NavLink to="/programs" type="Programs"> 
+                             <p> Programs for Kids & Adults </p>
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink to="/hotels" type="Hotels"> 
-                                <h3> <img src={hotl} alt="hotel" style={{ height:'30px', width:'30px'}} /> </h3>
+                           <NavLink to="/business" type="Business"> 
+                             <p> Business </p>
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink to="/weather" className="nav col-sm-3 col-sm-3 col-sm-6 col-sm-8 mx-auto my-2" type="weather">  
-                                <h3> 
-                                <img src={findTrip} alt="weather" style={{ height:'30px', width:'30px'}} />
-                                </h3>
+                           <NavLink to="/publications" type="Publications"> 
+                             <p> Publications </p>
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                           <NavLink to="/contact" type="Contact"> 
+                             <p> Contact </p>
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink to="/weather" type="weather">  
+                            <p> Weather </p>
                             </NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink to="/login" type="login" >
-                                <h3> <img src={log} alt="login" style={{ height:'30px', width:'30px'}} />  {/* <FaSignInAlt /> */}
-                                </h3> 
+                            <p> Login </p>
                             </NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink to="/signup" type="signup"> 
-                                <h3> <img src={sign} alt="signup" style={{ height:'30px', width:'30px'}} />  {/* <MdSwitchAccount />  */}
-                                </h3> 
+                            <p> Signup </p>
                             </NavLink>
                         </NavItem>
                     </div>
