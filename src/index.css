@@ -8,8 +8,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   height: 100vh;
-  overflow: scroll;
+  /* overflow: scroll; */
 
   /* background: url(https://www.rd.com/wp-content/uploads/2020/07/GettyImages-1158679440.jpg) no-repeat center center fixed; */
   /* background: url("./img/format.jpeg") no-repeat center center fixed; */
@@ -41,4 +42,7 @@ code {
   transform: translate(-50%, -50%);
   color: white;
 
+}
+.css-1f8sh1y{
+  height: 100vh !important;
 }

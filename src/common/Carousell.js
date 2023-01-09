@@ -44,13 +44,6 @@ const Item = ({ name, description, image }) => {
       <h1 className="centered">{name}</h1>
       <p className="centered1">{description}</p>
 
-      {/* <Paper>
-        <h2>{name}</h2>
-        <p>{description}</p>
-        <img src={image} alt="Grapefruit slice atop a pile of other slices" />
-
-        <Button>more info...</Button>
-      </Paper> */}
     </>
   );
 };
