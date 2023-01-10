@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext } from "react";
 // import { Switch, Route, Redirect } from "react-router-dom"
 import { Switch, Route, Redirect } from "react-router";
 import Homepage from "../homepage/Homepage";
@@ -8,50 +8,52 @@ import Business from "../components/Business";
 import Publications from "../components/Publications";
 import Contact from "../components/Contact";
 
-import SignupForm from "../auth/SignupForm"
-import LoginForm from "../auth/LoginForm"
-import ProfileForm from "../auth/ProfileForm"
-import UserPage from "../auth/UserPage"
-import UserContext from "../auth/UserContext"
+import SignupForm from "../auth/SignupForm";
+import LoginForm from "../auth/LoginForm";
+import ProfileForm from "../auth/ProfileForm";
+import UserPage from "../auth/UserPage";
+import UserContext from "../auth/UserContext";
 import WeatherPage from "../WeatherPage/WeatherPage";
 
-
 const Routes = ({ login, signup, updateUser }) => {
-
   const { isLoggedIn } = useContext(UserContext);
 
-
   return (
-    <div className="pt-5">
+    <div className="">
       {/* <Routes> */}
-       <Switch>
-      {isLoggedIn
-        ? (<>
-        <Route index path="/" element={<Homepage />} />
-        <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/programs" element={<Programs />} />
-        <Route path="/business" element={<Business />} />
-        <Route path="/publications" element={<Publications />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/profile" element={<UserPage />} />
-        <Route path="/update" element={<ProfileForm updateUser={updateUser} />} />
-       </>) : (<>
-        <Route index path="/" element={<Homepage />} />
-        <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/programs" element={<Programs />} />
-        <Route path="/business" element={<Business />} />
-        <Route path="/publications" element={<Publications />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/signup" element={<SignupForm signup={signup} />} />
-        <Route path="/login" element={<LoginForm login={login} />} />
-        <Route path="/weather" component={WeatherPage} />
-        <Redirect to="/" />
-      </>)
-    }
-   </Switch>
-     {/* </Routes> */}
+      <Switch>
+        {isLoggedIn ? (
+          <>
+            <Route index path="/" element={<Homepage />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/programs" element={<Programs />} />
+            <Route path="/business" element={<Business />} />
+            <Route path="/publications" element={<Publications />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/profile" element={<UserPage />} />
+            <Route
+              path="/update"
+              element={<ProfileForm updateUser={updateUser} />}
+            />
+          </>
+        ) : (
+          <>
+            <Route index path="/" element={<Homepage />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/programs" element={<Programs />} />
+            <Route path="/business" element={<Business />} />
+            <Route path="/publications" element={<Publications />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/signup" element={<SignupForm signup={signup} />} />
+            <Route path="/login" element={<LoginForm login={login} />} />
+            <Route path="/weather" component={WeatherPage} />
+            <Redirect to="/" />
+          </>
+        )}
+      </Switch>
+      {/* </Routes> */}
 
-    {/* <Switch>
+      {/* <Switch>
       {isLoggedIn
         ? (<>
         <Route exact path="/"> <Homepage /> </Route>
@@ -78,11 +80,8 @@ const Routes = ({ login, signup, updateUser }) => {
       </>)
     }
    </Switch> */}
-
- </div>
+    </div>
   );
-}
-     
-
+};
 
 export default Routes;
