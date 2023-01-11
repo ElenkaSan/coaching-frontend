@@ -34,8 +34,8 @@ function Navigation({ logout }) {
   return (
     <div>
         <Navbar expand="md">
-            <NavLink exact to="/" className="nav p-2">
-            <h3>LOGO <img src={logo} alt="logo" style={{ height:'30px', width:'30px'}} /> </h3>
+            <NavLink exact to="/" className="nav p-2 m-3">
+            <h3><img src={logo} alt="logo" style={{ height:'100px', width:'100px'}} /> </h3>
             </NavLink>
             <Nav className="ml-auto" navbar>
                 {isLoggedIn

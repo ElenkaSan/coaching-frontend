@@ -50,7 +50,7 @@ function Header({ logout }) {
       <AppBar className="secondBox">
         <Toolbar sx={{ justifyContent: "space-around" }}>
           <Typography variant="h6" component="div" style={{ color: "skyblue" }}>
-            <h3> <img src={logo} alt="logo" style={{ height:'30px', width:'30px'}} /> </h3>
+            <h3> <img src={logo} alt="logo" style={{ height:'70px', width:'70px'}} /> </h3>
           </Typography>
           {isLoggedIn
                 ? (<>

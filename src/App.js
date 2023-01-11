@@ -146,6 +146,7 @@ function App() {
         <div className="App">
           <Navigation logout={logout} />
           {/* <Header logout={logout} /> */}
+          {/* Roures doesn't work with this Header please check it */}
           <Routes login={login} signup={signup} 
           />
         </div>
