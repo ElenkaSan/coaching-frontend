@@ -14,12 +14,13 @@ body {
 
   /* background: url(https://www.rd.com/wp-content/uploads/2020/07/GettyImages-1158679440.jpg) no-repeat center center fixed; */
   /* background: url("./img/format.jpeg") no-repeat center center fixed; */
-  background-size: cover;
+
+  /* background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-clip: border-box;
-  height: 100%;
+  background-clip: border-box; */
+
 }
 
 code {
@@ -30,19 +31,63 @@ code {
 
 .centered {
   position: absolute;
-  top: 50%;
+  top: 32%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: rgba(124, 51, 243, 0.748);
 }
 .centered1{
   position: absolute;
-  top: 55%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
 
 }
 .css-1f8sh1y{
-  height: 100vh !important;
+  height: 550px !important;
 }
+@media only screen and (max-width: 600px) {
+  .css-1f8sh1y{
+    height: 167px !important;
+  }
+  .centered {
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(124, 51, 243, 0.748);
+  }
+  .centered1{
+    position: absolute;
+    top: 40%;
+    line-height: 9px;
+    font-size: 15px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  
+  }
+}
+@media (min-width: 600px) and (max-width: 990px) { 
+  .css-1f8sh1y{
+    height: 167px !important;
+  }
+  .centered {
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(124, 51, 243, 0.748);
+  }
+  .centered1{
+    position: absolute;
+    top: 40%;
+    line-height: 10px;
+    font-size: 25px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  
+  }
+ }

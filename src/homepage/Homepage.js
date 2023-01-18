@@ -5,7 +5,7 @@ import { Carousell } from "../common/Carousell";
 
 import "./Homepage.css";
 import UserContext from "../auth/UserContext";
-// import NoLoggedIn from "./NoLoggedIn";
+import NoLoggedIn from "./NoLoggedIn";
 // import { FaGithubAlt } from "react-icons/fa";
 // import { AiFillLinkedin } from "react-icons/ai";
 
@@ -23,6 +23,37 @@ const Homepage = () => {
   return (
     <>
       <Carousell />
+      <section className="container p-5">
+      <Card className="card bg-light text-center">
+        <CardBody className="text-center">
+          {/* {isLoggedIn
+          ? (<>         
+            <CardTitle>
+              <h2 className="T text-info font-weight-bold"> {`Welcome ${isLoggedIn.username}!`} </h2>
+              <hr />
+            </CardTitle>
+            <CardText>
+              <div className="card bg-light p-2">
+                <h5 className=""> 
+                 Coach Website Loggin user
+                </h5>
+              </div>
+            </CardText>
+          </>) : (<>  */}
+          <CardTitle>
+            <h2 className="font-weight-bold font-italic text-warning">
+              Welcome to Coach Anna Rubleva!
+            </h2>
+          </CardTitle>
+          <CardText>
+            <NoLoggedIn />
+          </CardText>
+          {/* </>) }  */}
+        </CardBody>
+      </Card>
+      {/* <div className="footer">
+    </div> */}
+    </section>
     </>
   );
 };

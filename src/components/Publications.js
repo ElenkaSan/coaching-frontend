@@ -1,6 +1,8 @@
 import React from "react";
 import { Card, CardBody, CardTitle } from "reactstrap";
 
+// will use for img https://mui.com/material-ui/react-image-list/
+
 const Publications = () => {
     //   const navigate = useNavigate();
     
@@ -26,6 +28,6 @@ const Publications = () => {
       </Card>
     </section>
   );
-    };
+};
     
     export default Publications;

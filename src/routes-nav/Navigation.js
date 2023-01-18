@@ -34,8 +34,8 @@ function Navigation({ logout }) {
   return (
     <div>
         <Navbar expand="md">
-            <NavLink exact to="/" className="nav p-2 m-3">
-            <h3><img src={logo} alt="logo" style={{ height:'100px', width:'100px'}} /> </h3>
+            <NavLink exact to="/" className="nav">
+            <h3><img className="" src={logo} alt="logo" style={{ height:'100px', width:'100px'}} /> </h3>
             </NavLink>
             <Nav className="ml-auto" navbar>
                 {isLoggedIn
@@ -143,7 +143,7 @@ function Navigation({ logout }) {
                           </NavLink>
                         </Dropdown.Item>
                     </DropdownButton>
-                    <div  className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div  className="collapse navbar-collapse lead" id="navbarSupportedContent">
                     <NavItem>
                             <NavLink to="/aboutus" type="AboutUs"> 
                                 <p> About Us </p>
