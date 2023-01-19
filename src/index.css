@@ -44,6 +44,10 @@ code {
   color: white;
 
 }
+
+.css-ohwg9z{
+  margin-top: 8% !important;
+}
 .css-1f8sh1y{
   height: 550px !important;
 }
@@ -69,6 +73,7 @@ code {
   
   }
 }
+
 @media (min-width: 600px) and (max-width: 990px) { 
   .css-1f8sh1y{
     height: 167px !important;
