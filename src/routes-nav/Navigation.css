@@ -1,5 +1,6 @@
 nav {
-  background-color: rgba(115, 43, 230, 0.748);
+  background-color: rgba(120, 50, 175);
+  /* background-color: rgba(135, 65, 210); */
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.639), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
 }
 
@@ -10,19 +11,22 @@ nav {
 }
 
 nav a {
-  color: #cbe318;
-  text-shadow: 0 0 3vw #23ffed;
+  color: #FFBE00;
+  /* color: #cbe318; */
+  text-shadow: 0 0 3vw #37C8AF;
+  /* text-shadow: 0 0 3vw #23ffed; */
   text-decoration: none;
 }
 
 nav a.active {
-  color: #23ffed;
+  color: #37C8AF;
   font-weight: bold;
   box-sizing: border-box;
 }
 
 nav a.active:hover {
-  color: #e3e318!important;
+  color: #FFBE00!important;
+  /* color: #e3e318!important; */
   border-bottom: 2px solid #367f9e;
 }
 

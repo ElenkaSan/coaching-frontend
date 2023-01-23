@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import useLocalStorage from "./hooks/useLocalStorage";
 import Navigation from "./routes-nav/Navigation";
-
+import Header from "./routes-nav/Header";
 import Routes from "./routes-nav/Routes";
-import Header from "./newHeader/Header";
-
 // import Routes from "./routes-nav/Routes2";
 
 import LoadingSpinner from "./common/LoadingSpinner";
@@ -14,13 +12,14 @@ import UserContext from "./auth/UserContext";
 import jwt from "jsonwebtoken";
 require("dotenv").config();
 
+
 // Key name for storing token in localStorage for "remember me" re-login
 export const TOKEN_STORAGE_ID = "coach-token";
 
-// App script provides the initial rendering of children components.
+// App script provides the initial rendering of children components. 
 // Uopon initial rendering, we check to see if the user has a token in the browser session.
 // We decrypt the token and use the data to rerender the user's session.
-// If not, we ask the user to login or signup and cannot proceed until one of these actions is completed.
+// If not, we ask the user to login or signup and cannot proceed until one of these actions is completed. 
 // Upon successful login/signup, user data will be saved to global variable of "USER"
 // If not successful, we will send back the errors for it to be displayed on child component.
 
@@ -72,9 +71,9 @@ function App() {
     [token]
   );
 
-  //We register users with this function to Api, which posts to the backend.
-  //If successful, save USER with data, save new token, and return success message.
-  //IF unsucessful, return errors.
+   //We register users with this function to Api, which posts to the backend.
+  //If successful, save USER with data, save new token, and return success message. 
+  //IF unsucessful, return errors. 
   const signup = async (signupData) => {
     try {
       let token = await Api.signup(signupData);
@@ -86,20 +85,22 @@ function App() {
     }
   };
 
-  //Login User gives the user the ability to login. Data is checked on APi to the backend.
-  //If successful, save USER with data, save new token, and return success message.
-  //IF unsucessful, return errors.
+   //Login User gives the user the ability to login. Data is checked on APi to the backend.
+  //If successful, save USER with data, save new token, and return success message. 
+  //IF unsucessful, return errors. 
   const login = async (loginData) => {
     try {
       let token = await Api.login(loginData);
       setToken(token);
       console.error(token);
-      return [true, token.message];
-    } catch (err) {
+      return [true, token.message ];
+    } catch (err)
+     {
       console.error(err);
       return [false, err.message];
     }
   };
+
 
   //Logout will reset the session token to null for the user and will remove their data from the app instance.
   const logout = () => {
@@ -108,9 +109,9 @@ function App() {
     // localStorage.clear();
   };
 
-  //Users can update their profile with this function, which posts to the back end on Api call.
-  //If successful, save USER with data and return success message.
-  //IF unsucessful, return errors.
+ //Users can update their profile with this function, which posts to the back end on Api call.
+  //If successful, save USER with data and return success message. 
+  //IF unsucessful, return errors. 
   async function updateCurrentUser() {
     try {
       let token = await Api.getUserProfile(isLoggedIn.username);
@@ -139,15 +140,15 @@ function App() {
           updateUser,
           setIsLoggedIn,
           updateCurrentUser,
-          applicationIds,
+          applicationIds
         }}
       >
         <div className="App">
-          <Header logout={logout} />
-          {/* <Navigation logout={logout} /> */}
+          <Navigation logout={logout} />
           {/* <Header logout={logout} /> */}
           {/* Roures doesn't work with this Header please check it */}
-          <Routes login={login} signup={signup} />
+          <Routes login={login} signup={signup} 
+          />
         </div>
       </UserContext.Provider>
     </BrowserRouter>
