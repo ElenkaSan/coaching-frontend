@@ -105,7 +105,7 @@ function App() {
   const logout = () => {
     setIsLoggedIn(null);
     setToken(null);
-    // localStorage.clear();
+     localStorage.clear();
   };
 
   //Users can update their profile with this function, which posts to the back end on Api call.

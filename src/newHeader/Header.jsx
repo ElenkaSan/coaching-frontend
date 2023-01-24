@@ -54,7 +54,7 @@ const styles = {
       fontSize: 20,
     },
     "& .Mui-selected": {
-    //   backgroundColor: "#ffbe00",
+      //   backgroundColor: "#ffbe00",
       backgroundColor: "#fce0a2",
       color: "#000",
       opacity: 0.7,
@@ -95,9 +95,10 @@ const DesktopNavigation = ({ logout }) => {
 
   const handleClick = () => {
     logout();
+
+    localStorage.clear();
     history.push("/");
-  //   localStorage.clear();
-}
+  }
   return (
     <Tabs
       value={value}
@@ -105,7 +106,7 @@ const DesktopNavigation = ({ logout }) => {
       aria-label="nav tabs example"
       sx={styles.tabs}
     >
-      <Tab sx={styles.tab} label="Home" component={Link} to="/" />
+      {/* <Tab sx={styles.tab} label="Home" component={Link} to="/" /> */}
       <Tab sx={styles.tab} label="About Us" component={Link} to="/aboutus" />
       <Tab
         sx={styles.tab}
@@ -122,14 +123,14 @@ const DesktopNavigation = ({ logout }) => {
       />
       <Tab sx={styles.tab} label="Contact" component={Link} to="/contact" />
       {isLoggedIn
-                ? (<>
-      <Tab sx={styles.tab} label="Profile" component={Link} to="/profile" />
-      <Tab sx={styles.tab} label="Logout" component={Link} to="/" />
-      </>) : (<>
-      <Tab sx={styles.tab} label="Login" component={Link} to="/login" />
-      <Tab sx={styles.tab} label="Signup" component={Link} to="/signup" />
-      </>)
-                }
+        ? (<>
+          <Tab sx={styles.tab} label="Profile" component={Link} to="/profile" />
+          <Tab sx={styles.tab} label="Logout" onClick={handleClick} component={Link} to="/" />
+        </>) : (<>
+          <Tab sx={styles.tab} label="Login" component={Link} to="/login" />
+          <Tab sx={styles.tab} label="Signup" component={Link} to="/signup" />
+        </>)
+      }
       <Dropdown />
     </Tabs>
   );
@@ -142,8 +143,8 @@ const MobileNavigation = ({ logout }) => {
   const handleClick = () => {
     logout();
     history.push("/");
-  //   localStorage.clear();
-}
+    //   localStorage.clear();
+  }
 
   const iOS =
     typeof navigator !== "undefined" &&
@@ -219,47 +220,47 @@ const MobileNavigation = ({ logout }) => {
               <ListItemText disableTypography> Contact</ListItemText>
             </ListItem>
             {isLoggedIn
-                ? (<>
-            <ListItem
-              divider
-              button
-              component={Link}
-              to="/profile"
-              onClick={() => setOpenDrawer(false)}
-            >
-              <ListItemText disableTypography> Profile</ListItemText>
-            </ListItem>
-            <ListItem
-              divider
-              button
-              component={Link}
-              to="/"
-              onClick={handleClick}
-            //   onClick={() => setOpenDrawer(false)}
-            >
-              <ListItemText disableTypography> Logout</ListItemText>
-            </ListItem>
-            </>) : (<>
+              ? (<>
                 <ListItem
-              divider
-              button
-              component={Link}
-              to="/login"
-              onClick={() => setOpenDrawer(false)}
-            >
-              <ListItemText disableTypography> Login</ListItemText>
-            </ListItem>
-            <ListItem
-              divider
-              button
-              component={Link}
-              to="/signup"
-              onClick={() => setOpenDrawer(false)}
-            >
-              <ListItemText disableTypography> Signup</ListItemText>
-            </ListItem>
-            </>)
-                }
+                  divider
+                  button
+                  component={Link}
+                  to="/profile"
+                  onClick={() => setOpenDrawer(false)}
+                >
+                  <ListItemText disableTypography> Profile</ListItemText>
+                </ListItem>
+                <ListItem
+                  divider
+                  button
+                  component={Link}
+                  to="/"
+                  onClick={handleClick}
+                //   onClick={() => setOpenDrawer(false)}
+                >
+                  <ListItemText disableTypography> Logout</ListItemText>
+                </ListItem>
+              </>) : (<>
+                <ListItem
+                  divider
+                  button
+                  component={Link}
+                  to="/login"
+                  onClick={() => setOpenDrawer(false)}
+                >
+                  <ListItemText disableTypography> Login</ListItemText>
+                </ListItem>
+                <ListItem
+                  divider
+                  button
+                  component={Link}
+                  to="/signup"
+                  onClick={() => setOpenDrawer(false)}
+                >
+                  <ListItemText disableTypography> Signup</ListItemText>
+                </ListItem>
+              </>)
+            }
           </List>
           <Dropdown />
         </Paper>
@@ -275,7 +276,7 @@ const MobileNavigation = ({ logout }) => {
   );
 };
 
-const Header = () => {
+const Header = ({ logout }) => {
   const isMobileMode = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
@@ -304,7 +305,7 @@ const Header = () => {
               }}
             />
           </Button>
-          {isMobileMode ? <MobileNavigation /> : <DesktopNavigation />}
+          {isMobileMode ? <MobileNavigation logout={logout} /> : <DesktopNavigation logout={logout} />}
         </Toolbar>
       </AppBar>
     </Fragment>

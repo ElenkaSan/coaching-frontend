@@ -1,6 +1,35 @@
 .css-1qtkow4-MuiTabs-root .MuiButtonBase-root.MuiTab-root {
     font-size: 14px !important
 }
+
 .css-1cy08wa-MuiButtonBase-root-MuiTab-root {
-padding: 0 12px !important
+    padding: 0 12px !important
+}
+
+.css-1ur1xb4-MuiPaper-root-MuiAppBar-root {
+
+    background-color: rgba(120, 50, 175) !important;
+
+}
+
+.css-1qtkow4-MuiTabs-root .MuiTabs-flexContainer a:hover {
+    color: #FFBE00;
+    text-decoration: none;
+}
+
+.css-1cy08wa-MuiButtonBase-root-MuiTab-root.Mui-selected {
+    color: #FFBE00 !important;
+}
+
+.css-1qtkow4-MuiTabs-root .Mui-selected {
+    background-color: #37C8AF !important;
+}
+
+.css-1mk9mw3-MuiList-root {
+    background-color: rgba(120, 50, 175) !important;
+    color: #FFBE00 !important;
+}
+
+.css-4t3x6l-MuiPaper-root-MuiDrawer-paper {
+    background-color: rgba(120, 50, 175) !important;
 }
